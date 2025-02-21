@@ -6,7 +6,7 @@
         "pollTimes": {
           "item": [
             {
-              "mode": "everyMinute"
+              "mode": "everyHour"
             }
           ]
         },
@@ -40,7 +40,7 @@
       "parameters": {
         "content": "## Step1 - 下載到google drive的資料夾，方便統一管理電子發票\n",
         "height": 320,
-        "width": 920
+        "width": 930
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -146,40 +146,7 @@
     },
     {
       "parameters": {
-        "inputDataFieldName": "attachment_0",
-        "name": "=Invoice - {{ $json.subject }}.pdf",
-        "driveId": {
-          "__rl": true,
-          "value": "My Drive",
-          "mode": "list",
-          "cachedResultName": "My Drive",
-          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
-        },
-        "folderId": {
-          "__rl": true,
-          "value": "https://drive.google.com/drive/folders/1xKOdcsAhn6rL1n6Zy6SYKJCvn3EkkLxe",
-          "mode": "url"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        -80,
-        -620
-      ],
-      "id": "cfe45450-f659-41dc-9c78-da8ff729a14e",
-      "name": "Upload2GWS",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "FOJsxE5vAvlfyH16",
-          "name": "Google Drive account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "content": "## Step2 - 使用 Chatgpt 整理發票資訊，並整理成發票清單\n",
+        "content": "## Step2 - 使用 Chatgpt 整理發票內容，並匯出資訊整理成發票清單\n",
         "height": 280,
         "width": 1240,
         "color": 4
@@ -219,7 +186,7 @@
         "messages": {
           "values": [
             {
-              "content": "=你現在是專業的電子發票整理助手，請協助我將輸入的任意發票資訊轉換為統一格式。\n請依照以下範本生成結果：\n\n發票資訊範本\n\t•\t發票編號: （自動從輸入中擷取）\n\t•\t發票日期: （自動擷取）\n\t•\t應付金額: （自動擷取）\n\t•\t帳戶號碼: （自動擷取）\n\t•\t備註\n\n\n輸入範例:\n\nInvoice Number: 2035799125  \nInvoice Date: February 2, 2025  \nAccount number: 737471613604   \nTotal Amount Due: $3.10  \n\n生成格式範例:\n \n{\n  \"invoice_number\": \"2035799125\",\n  \"invoice_date\": \"February 2, 2025\",\n  \"amount_due\": \"$3.10\"\n  \"account_number\": \"737471613604\",\n  \"notes\": \"無\"\n}\n\n請依上述規則回應並請輸出格式一致且符合 JSON 標準！\n地區：台灣 / 時間：UTC8 / 輸出語言：繁體中文\n\n輸入文字：\n{{ $json.text }}",
+              "content": "=你現在是專業的電子發票整理助手，請協助我將輸入的任意發票資訊轉換為統一格式。\n請依照以下範本生成結果：\n\n發票資訊範本\n\t•\t發票類型: （自動從輸入中擷取）\n\t•\t發票編號: （自動從輸入中擷取）\n\t•\t發票日期: （自動擷取）\n\t•\t應付金額: （自動擷取）\n\t•\t帳戶號碼: （自動擷取）\n\t•\t備註\n\n\n輸入範例:\n\nInvoice Purpose: AWS Cloud Cost  \nInvoice Number: 2035799125  \nInvoice Date: 2025-01-02 \nAccount number: 737471613604   \nTotal Amount Due: $3.10  \n\n生成格式範例:\n \n{\n  \"invoice_purpose\": \"AWS Cloud Cost\"\n  \"invoice_number\": \"2035799125\",\n  \"invoice_date\": \"2025-01-02\",\n  \"amount_due\": \"$3.10\"\n  \"account_number\": \"737471613604\",\n  \"notes\": \"無\"\n}\n\n請依上述規則回應並請輸出格式一致且符合 JSON 標準！\n地區：台灣  \n時間：UTC8\n輸出語言：繁體中文\n發票日期：年-月-日 (2025-01-02)\n\n輸入文字：\n{{ $json.text }}",
               "role": "system"
             }
           ]
@@ -245,7 +212,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const text = $input.first().json.choices[0].message.content; // Get the parsed text from AI\n\nreturn {text}\n\nconst cleanedJsonString = text.replace(/^```json\\s+/, '').replace(/\\s+```$/, '');\nconst parsedData = JSON.parse(cleanedJsonString);\nreturn parsedData;\n\n"
+        "jsCode": "const text = $input.first().json.choices[0].message.content; // Get the parsed text from AI\n\nreturn {text}\n\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -261,8 +228,8 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1mMpdR61t-4TAdIpNeyfxdVH9lRnzXkC_WU1PG4m2FQk",
-          "mode": "id"
+          "value": "https://docs.google.com/spreadsheets/d/1mMpdR61t-4TAdIpNeyfxdVH9lRnzXkC_WU1PG4m2FQk",
+          "mode": "url"
         },
         "sheetName": {
           "__rl": true,
@@ -278,7 +245,8 @@
             "發票日期": "={{ $json.text.invoice_date }}",
             "應付金額": "={{ $json.text.amount_due }}",
             "帳戶號碼": "={{ $json.text.account_number }}",
-            "備註": "={{ $json.text.notes }}"
+            "備註": "={{ $json.text.notes }}",
+            "發票類型": "={{ $json.text.invoice_purpose }}"
           },
           "matchingColumns": [
             "發票編號"
@@ -287,6 +255,16 @@
             {
               "id": "發票編號",
               "displayName": "發票編號",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "發票類型",
+              "displayName": "發票類型",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -350,6 +328,55 @@
           "name": "Google Sheets account"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "## Step0 - Gmail收到電子發票後，觸發動作\n",
+        "height": 600,
+        "width": 490,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -860,
+        -760
+      ],
+      "id": "b087111e-3f74-4dff-9c85-943ec9c7abf1",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "attachment_0",
+        "name": "=Invoice - {{ $json.subject }}.pdf",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1xKOdcsAhn6rL1n6Zy6SYKJCvn3EkkLxe",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -80,
+        -620
+      ],
+      "id": "cfe45450-f659-41dc-9c78-da8ff729a14e",
+      "name": "Upload2GD",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "FOJsxE5vAvlfyH16",
+          "name": "Google Drive account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -387,22 +414,11 @@
         ]
       ]
     },
-    "Upload2GWS": {
-      "main": [
-        [
-          {
-            "node": "Gmail_Label",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Change Mime Type": {
       "main": [
         [
           {
-            "node": "Upload2GWS",
+            "node": "Upload2GD",
             "type": "main",
             "index": 0
           },
@@ -451,6 +467,17 @@
           }
         ]
       ]
+    },
+    "Upload2GD": {
+      "main": [
+        [
+          {
+            "node": "Gmail_Label",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": true,
@@ -461,7 +488,7 @@
     "executionTimeout": 300,
     "errorWorkflow": "0fS0IZwY5xyvbexo"
   },
-  "versionId": "4ae1c243-4745-48af-ac37-d86e539dc31c",
+  "versionId": "3070c05f-f30c-4459-a975-9eeaaeb823e0",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
