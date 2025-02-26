@@ -1,0 +1,380 @@
+{
+  "name": "🔥 IT 省力工具！SSL名單確認與過期通知",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "f339d618-cf80-4662-be8b-f630646b2dde",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        780,
+        920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1kwCcuhCGuTq_7QzMzs9-UbN8oWOxwIbtfnbQDJTJ66Q",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "URL",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "URL": "={{ $('Fetch URLs').item.json.URL }}",
+            "名稱": "={{ $('Fetch URLs').item.json[\"名稱\"] }}",
+            "SSL認證組織": "={{ $json.result.issuer_o }}",
+            "認證開始期限": "={{ $json.result.valid_from }}",
+            "認證失效期限": "={{ $json.result.valid_till }}"
+          },
+          "matchingColumns": [
+            "名稱"
+          ],
+          "schema": [
+            {
+              "id": "名稱",
+              "displayName": "名稱",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SSL認證組織",
+              "displayName": "SSL認證組織",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "認證開始期限",
+              "displayName": "認證開始期限",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "認證失效期限",
+              "displayName": "認證失效期限",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "34fecc81-e4c1-4c61-9563-48042587c024",
+      "name": "URLs to Monitor",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1640,
+        920
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1kwCcuhCGuTq_7QzMzs9-UbN8oWOxwIbtfnbQDJTJ66Q",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "URL",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kwCcuhCGuTq_7QzMzs9-UbN8oWOxwIbtfnbQDJTJ66Q/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "072ba6a0-8f08-49a6-839c-a007c2f2d1ba",
+      "name": "Fetch URLs",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1040,
+        920
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://ssl-checker.io/api/v1/check/{{ $json[\"URL\"].replace(/^https?:\\/\\//, \"\").replace(/\\/$/, \"\") }}",
+        "options": {}
+      },
+      "id": "d7a64fb5-0c71-4d1a-8383-585440466b0f",
+      "name": "Check SSL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1300,
+        920
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "ee6e2ce8-569a-4f1f-91b5-2c55f605a16b",
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              },
+              "leftValue": "={{ $json.result.days_left }}",
+              "rightValue": 7
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff79c4bc-8694-43e0-810f-9574ffc3c3dd",
+      "name": "Expiry Alert",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1660,
+        1300
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "sendTo": "qwedsazxc78@gmail.com",
+        "subject": "=SSL {{ $json.result.days_left }} 天後過期 - {{ $json.result.host }}",
+        "emailType": "text",
+        "message": "=請確認該網域：{{ $json.result.host }}\n再過 {{ $json.result.days_left }} 天後即將過期，請儘速處理\nhttps://docs.google.com/spreadsheets/d/1kwCcuhCGuTq_7QzMzs9-UbN8oWOxwIbtfnbQDJTJ66Q",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "10c1bf0e-3191-4430-a7c8-ec4c262091cc",
+      "name": "Send Alert Email",
+      "type": "n8n-nodes-base.gmail",
+      "position": [
+        1920,
+        1280
+      ],
+      "webhookId": "cd6b6b20-e619-4526-aa69-64754e3d9035",
+      "typeVersion": 2.1,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "xhKbueCrvtZ602Y6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "f9a6cc4e-430f-4a03-a05f-12f58fd2d490",
+      "name": "Dayly Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        780,
+        1140
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "## Step0 - 每天擷取網站網域清單\n",
+        "height": 600,
+        "width": 570,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        660,
+        720
+      ],
+      "id": "ffe89013-7002-48fe-99fa-4e20a1b33db5",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Step1 - 使用  SSL-Checker.io 確認網站 SSL 狀況\n",
+        "height": 440,
+        "width": 670
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        720
+      ],
+      "id": "c4b22c5a-f571-49e7-a878-47943e6e64d0",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Step3 - 寄送郵件通知SSL將在7天內過期的網域 ",
+        "height": 340,
+        "width": 640,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        1160
+      ],
+      "id": "fbdc0179-d3db-4a11-8371-0f787c567a25",
+      "name": "Sticky Note5"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Fetch URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch URLs": {
+      "main": [
+        [
+          {
+            "node": "Check SSL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check SSL": {
+      "main": [
+        [
+          {
+            "node": "URLs to Monitor",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Expiry Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Expiry Alert": {
+      "main": [
+        [
+          {
+            "node": "Send Alert Email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Dayly Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Taipei",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 300,
+    "errorWorkflow": "0fS0IZwY5xyvbexo"
+  },
+  "versionId": "88e70544-ead9-4623-b968-e28220d8a1c1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "QjK6A8lwdsyCBXHu",
+  "tags": [
+    {
+      "createdAt": "2025-02-08T08:50:12.969Z",
+      "updatedAt": "2025-02-08T08:50:12.969Z",
+      "id": "MsjujtEapjDx89km",
+      "name": "YT"
+    }
+  ]
+}
