@@ -325,7 +325,7 @@
     },
     {
       "parameters": {
-        "content": "## Step3 - 將逐字稿生成到 srt 作為字幕檔案\n",
+        "content": "## Step3 - 生成 srt 字幕檔案\n",
         "height": 280,
         "width": 1340,
         "color": 5
@@ -625,7 +625,7 @@
     "executionTimeout": 300,
     "errorWorkflow": "0fS0IZwY5xyvbexo"
   },
-  "versionId": "d9ab6f9d-9be5-4272-81c3-079b9622c76b",
+  "versionId": "3740e5b7-4925-4ec6-a595-f70884806a25",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"

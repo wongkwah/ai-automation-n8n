@@ -1,5 +1,5 @@
 {
-  "name": "🔥 IT 省力工具！SSL名單確認與過期通知",
+  "name": "🔥 IT 省力工具！SSL 憑證管理與憑證過期通知自動化",
   "nodes": [
     {
       "parameters": {},
@@ -245,7 +245,7 @@
     },
     {
       "parameters": {
-        "content": "## Step0 - 每天擷取網站網域清單\n",
+        "content": "## Step1 - 每天擷取網站網域清單\n",
         "height": 600,
         "width": 570,
         "color": 6
@@ -254,14 +254,14 @@
       "typeVersion": 1,
       "position": [
         660,
-        720
+        740
       ],
       "id": "ffe89013-7002-48fe-99fa-4e20a1b33db5",
       "name": "Sticky Note3"
     },
     {
       "parameters": {
-        "content": "## Step1 - 使用  SSL-Checker.io 確認網站 SSL 狀況\n",
+        "content": "## Step2 - 使用  SSL-Checker.io 確認網站 SSL 狀況\n",
         "height": 440,
         "width": 670
       },
@@ -269,14 +269,14 @@
       "typeVersion": 1,
       "position": [
         1240,
-        720
+        740
       ],
       "id": "c4b22c5a-f571-49e7-a878-47943e6e64d0",
       "name": "Sticky Note4"
     },
     {
       "parameters": {
-        "content": "## Step3 - 寄送郵件通知SSL將在7天內過期的網域 ",
+        "content": "## Step3 - 寄送郵件通知，SSL將在7天內過期的網域 ",
         "height": 340,
         "width": 640,
         "color": 4
@@ -284,8 +284,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1560,
-        1160
+        1500,
+        1180
       ],
       "id": "fbdc0179-d3db-4a11-8371-0f787c567a25",
       "name": "Sticky Note5"
@@ -355,7 +355,7 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1",
     "timezone": "Asia/Taipei",
@@ -363,7 +363,7 @@
     "executionTimeout": 300,
     "errorWorkflow": "0fS0IZwY5xyvbexo"
   },
-  "versionId": "88e70544-ead9-4623-b968-e28220d8a1c1",
+  "versionId": "1f885224-fe3f-416e-a69d-a014d5167650",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
