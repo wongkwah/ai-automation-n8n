@@ -1,0 +1,152 @@
+{
+  "name": "🔥 AI Agent with xAI Grok API - Basic",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## 使用 open ai chat model 呼叫 xAI grok API\n",
+        "height": 580,
+        "width": 990,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        -140
+      ],
+      "id": "af6a2807-1a28-49e9-964e-30a1eed83972",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "options": {
+          "systemMessage": "=## **任務**  \n你是一個樂於助人的助理，請提供簡潔的回覆，因為使用者會透過手機語音接收回覆。避免使用如 `\\n` 這類符號，以防影響語音播報。  \n\n## **背景資訊**  \n- 今天是 {{ $now.format('dd LLL yy') }}。  \n- 當前時間：{{ $now.format('h:mm a') }}（台灣時間）。  \n- 語言：繁體中文。  \n- 若被詢問，你是一個 **n8n 工作流程** 中運行的 AI 代理。  \n\n## **輸出要求**  \n請保持回覆**簡潔明瞭**，優化為適合語音播報的格式。  \n不要產生錯誤資訊，若不知道答案，請直接回答「我不知道」。  \n輸出內容的語言應為**繁體中文**。"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -80,
+        20
+      ],
+      "id": "1f001a52-c229-44fc-b2dc-7dbdddb1fce3",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -360,
+        20
+      ],
+      "id": "01c9d109-7c05-447c-a8b9-607c2589f9ff",
+      "name": "When chat message received",
+      "webhookId": "8f079d57-6fbe-41f7-b343-33c51c6b85e4"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -40,
+        260
+      ],
+      "id": "18083b16-160f-4e66-8db7-3eef4cd07d6d",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "grok-2-1212",
+          "mode": "list",
+          "cachedResultName": "grok-2-1212"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -200,
+        260
+      ],
+      "id": "e45818e1-f7ab-4ef7-9ea2-32aeea4821c9",
+      "name": "xAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "7ZZP54uJ6MOfZitq",
+          "name": "xAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "xAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8fc449d6-6079-46eb-89e6-992c107fff2a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "TnZkTueNFXFvheee",
+  "tags": [
+    {
+      "createdAt": "2025-02-08T08:50:12.969Z",
+      "updatedAt": "2025-02-08T08:50:12.969Z",
+      "id": "MsjujtEapjDx89km",
+      "name": "YT"
+    },
+    {
+      "createdAt": "2025-02-26T02:27:02.570Z",
+      "updatedAt": "2025-02-26T02:27:02.570Z",
+      "id": "T8IZSFIeQbyeWt7f",
+      "name": "gen-AI"
+    }
+  ]
+}
