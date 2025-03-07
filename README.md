@@ -14,7 +14,7 @@
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](你的_YT_影片連結_3)
 
 4. [🔥 IT 省力工具！SSL 憑證管理與憑證過期通知自動化](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/4-SSL-checker-automation)
-   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](你的_YT_影片連結_4)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/VVXYiKapIKg)
 
 5. [💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/5-xAI-ai-agent)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](你的_YT_影片連結_4)
