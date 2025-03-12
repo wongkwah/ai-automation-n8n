@@ -8,13 +8,13 @@
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/watch?v=9RNpxRrwdHQ)
 
 2. [🔥 省力工具！逐字稿跟srt字幕檔自動轉換機器人](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/2-auto-translate-subtitle-automation)
-   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](你的_YT_影片連結_2)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
 
-3. [🔥 MKT行銷省力工具！公司名單抓取神器](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/3-auto-marketing-list-automation)
-   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](你的_YT_影片連結_3)
+3. [🔥 行銷省力工具！公司名單抓取神器，用 n8n 幫忙整理潛在客戶名單](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/3-auto-marketing-list-automation)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/PsGwfkYdfpk)
 
 4. [🔥 IT 省力工具！SSL 憑證管理與憑證過期通知自動化](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/4-SSL-checker-automation)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/VVXYiKapIKg)
 
 5. [💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/5-xAI-ai-agent)
-   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](你的_YT_影片連結_4)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)

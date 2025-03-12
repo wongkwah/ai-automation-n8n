@@ -3,7 +3,7 @@
   "nodes": [
     {
       "parameters": {
-        "content": "## Step1 - 將 google drive 的音檔，利用使用 Chatgpt 的 Whisper 功能整理出逐字稿\n",
+        "content": "## Step1 - 將 google drive 的音檔，利用 Chatgpt 的 Whisper 功能整理出逐字稿\n",
         "height": 320,
         "width": 1050
       },
@@ -20,13 +20,13 @@
       "parameters": {
         "content": "## Step2 - 將逐字稿生成到 google 文件中，方便後續使用\n",
         "height": 320,
-        "width": 480,
+        "width": 500,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        480,
+        460,
         -1100
       ],
       "id": "17650e11-045b-48d4-a98c-2b6413c29a7d",
@@ -59,7 +59,8 @@
           "item": [
             {
               "mode": "everyX",
-              "value": 5
+              "value": 5,
+              "unit": "minutes"
             }
           ]
         },
@@ -93,7 +94,8 @@
           "item": [
             {
               "mode": "everyX",
-              "value": 4
+              "value": 5,
+              "unit": "minutes"
             }
           ]
         },
@@ -283,7 +285,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1060,
+        -1080,
         -1100
       ],
       "id": "4f7b1403-4d22-4cdd-bf75-04a0ef5f2b9a",
@@ -625,7 +627,7 @@
     "executionTimeout": 300,
     "errorWorkflow": "0fS0IZwY5xyvbexo"
   },
-  "versionId": "3740e5b7-4925-4ec6-a595-f70884806a25",
+  "versionId": "c48a9ee3-f60f-41e9-aeef-58cae3f67120",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
