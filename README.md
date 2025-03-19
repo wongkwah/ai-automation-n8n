@@ -17,4 +17,4 @@
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/VVXYiKapIKg)
 
 5. [💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/5-xAI-ai-agent)
-   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/wulZu8B3J7k)
