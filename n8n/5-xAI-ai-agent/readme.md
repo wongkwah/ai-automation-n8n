@@ -1,4 +1,4 @@
-# 💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent。
+# 💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent。[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Z1uqqLNAB4U)
 
 ![馬斯克懂用戶封面](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/5-xAI-ai-agent/cover.png?raw=true)
 
@@ -34,3 +34,10 @@
    - 使用 OpenAI 模組來設定 xAI 的使用。
 
 4. **設置 AI Agent Workflow**：下載並導入 JSON 檔案，將其轉換為 xAI Grok 模型。
+
+---
+
+## 🚀 下載資源
+
+[n8n 連結](https://n8n.io/)
+[n8n 部署 zeabur 連結](https://zeabur.com/referral?referralCode=qwedsazxc78)

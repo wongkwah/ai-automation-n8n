@@ -1,4 +1,4 @@
-# 🔥 IT 省力工具！SSL 憑證管理與憑證過期通知自動化
+# 🔥 IT 省力工具！SSL 憑證管理與憑證過期通知自動化[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/VVXYiKapIKg)
 
 ![SSL 憑證管理](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/4-SSL-checker-automation/cover.png?raw=true)
 
@@ -28,3 +28,10 @@
 4. **更新至 Google Sheet** ：自動更新並儲存查詢結果，確保 SSL 憑證資訊紀錄完整
 
 透過這個流程，使用者可以輕鬆與高效得維護所有 SSL 憑證，再也不用擔心因為過期而造成的網站中斷。
+
+---
+
+## 🚀 下載資源
+
+[n8n 連結](https://n8n.io/)
+[n8n 部署 zeabur 連結](https://zeabur.com/referral?referralCode=qwedsazxc78)

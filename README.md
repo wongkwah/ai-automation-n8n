@@ -1,8 +1,12 @@
 # ai-automation-n8n
 
+## AI 自動化系列播放清單 | AI-Automation
+
 [ai automation - 使用 n8n 與 ai agent 來自動化](https://github.com/qwedsazxc78/ai-automation-n8n) [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
 
-## ai-automation AI 自動化系列
+[🔔 如果你喜歡我的內容！點我訂閱頻道起來](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
+
+## AI 自動化系列影片 | AI-Automation
 
 1. [🔥 省力工具！發票自動整理 AI 機器人](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/1-simple-invoice-automation)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/watch?v=9RNpxRrwdHQ)
@@ -21,3 +25,6 @@
 
 6. [🔥 省力工具！超級翻譯機，1次翻譯100個段落，英翻中、中翻英都可以一次搞定](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/LtCnZTV3cgs)
+
+7. [🔥 省力工具！超級翻譯機，中英日韓翻譯一次搞定！](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/PgT0_F56Eb4)

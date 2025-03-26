@@ -1,0 +1,360 @@
+{
+  "name": "🔥 超級翻譯機，中英日韓翻譯一次搞定 - xAI",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        20
+      ],
+      "id": "d897f649-9c62-4525-8669-75c325e5727d",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit?gid=747901493#gid=747901493",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 747901493,
+          "mode": "list",
+          "cachedResultName": "中英日韓",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit#gid=747901493"
+        },
+        "options": {}
+      },
+      "id": "d17ef664-50fa-44f3-8d40-dc15565ea363",
+      "name": "Fetch data",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        -760,
+        20
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit?gid=747901493#gid=747901493",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 747901493,
+          "mode": "list",
+          "cachedResultName": "中英日韓",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit#gid=747901493"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Fetch data').item.json.row_number }}",
+            "英文": "={{ $json['英文'] }}",
+            "日文": "={{ $json['日文'] }}",
+            "韓文": "={{ $json['韓文'] }}",
+            "中文": "={{ $json['中文'] }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "中文",
+              "displayName": "中文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "英文",
+              "displayName": "英文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "日文",
+              "displayName": "日文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "韓文",
+              "displayName": "韓文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "24761a53-9eb0-45d7-a692-0509f68f5cbf",
+      "name": "Update Content",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        440,
+        140
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Step1 - 讀取要翻譯的內容，並決定翻譯的方法\n",
+        "height": 420,
+        "width": 710,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        -80
+      ],
+      "id": "30515068-e6b1-41f6-8abd-58d0d4ddb1a1",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Step2 - 使用 xAI or ChatGPT 來翻譯對應語言的內容",
+        "height": 420,
+        "width": 970
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -80
+      ],
+      "id": "3b3cedeb-8827-4d95-9de1-60ad4d261d44",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "batchSize": 10,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -540,
+        20
+      ],
+      "id": "448c00d5-5768-4f8a-ae1e-5af0a51cacbe",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return $json.choices[0].message.content"
+      },
+      "id": "ec2fc27d-148d-482d-86c7-a617d062e82b",
+      "name": "Parse JSON",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        60,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "grok-2-1212",
+          "mode": "list",
+          "cachedResultName": "GROK-2-1212"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=你是多國語言翻譯大師，請將下面的翻譯內容從指定語言轉換成目標語言\n\n1. 當無法辨認內容的指定語言時，請將內容預設翻譯成臺灣繁體中文\n2. 當沒有翻譯內容時，請再嘗試一次，最後回傳\"x\"\n3. 請不要亂翻譯\n\n預設JSON輸出\n{\n  \"中文\": \"我是翻譯機\",\n  \"英文\": \"I am a translator\",\n  \"韓文\": \"나는 번역가입니다\",\n  \"日文\": \"私は翻訳者です\",\n}",
+              "role": "system"
+            },
+            {
+              "content": "=請將內容翻譯成中文、英文、日文、韓文，等四種語言\n\n翻譯內容：{{ $json['中文'] }}"
+            }
+          ]
+        },
+        "simplify": false,
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -260,
+        140
+      ],
+      "id": "b36fc60c-ea7e-409e-a00e-5485086af0e5",
+      "name": "OpenAI - xAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "7ZZP54uJ6MOfZitq",
+          "name": "xAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "68898a35-c046-4881-8923-ddf82e3959e1",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        240,
+        20
+      ],
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Fetch data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Content": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "OpenAI - xAI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSON": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI - xAI": {
+      "main": [
+        [
+          {
+            "node": "Parse JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Update Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fd4f230d-a0a5-41c7-84ca-e58da006b2e3",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "ClGr86IwgiB7ib3d",
+  "tags": [
+    {
+      "createdAt": "2025-02-08T08:50:12.969Z",
+      "updatedAt": "2025-02-08T08:50:12.969Z",
+      "id": "MsjujtEapjDx89km",
+      "name": "YT"
+    }
+  ]
+}
