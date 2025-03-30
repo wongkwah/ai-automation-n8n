@@ -28,3 +28,6 @@
 
 7. [🔥 省力工具！超級翻譯機，中英日韓翻譯一次搞定！](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/PgT0_F56Eb4)
+
+8. [什麼是 MCP？ 3 個 n8n AI Agent 情境解析 MCP 使用](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/MwHuCtkzvdo)
