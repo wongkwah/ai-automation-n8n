@@ -17,9 +17,9 @@
 詳細講解如何將 `n8n` 與 Google 的多個服務整合。
 5 分鐘設定 Google OAuth 以確保能訪問 Google Sheet、Docs、Drive、Calendar 及 Gmail 等服務。
 
-*  **google 專案設置**：逐步操作如何在 Google Cloud 進行 OAuth 的設定。
-*  **API整合**：確保每個 API 的啟用與必要的憑證生成。
-*  **Google 服務 Oauth 權限設定**：n8n 服務權限安裝設定。
+*  ✅ **google 專案設置**：逐步操作如何在 Google Cloud 進行 OAuth 的設定。
+*  ✅ **API整合**：確保每個 API 的啟用與必要的憑證生成。
+*  ✅ **Google 服務 Oauth 權限設定**：n8n 服務權限安裝設定。
 
 > ⚠ **注意：** 前提是操作需在已開通 Google Cloud 服務的情況下進行。
 
