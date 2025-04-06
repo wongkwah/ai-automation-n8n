@@ -1,0 +1,216 @@
+# yaml-language-server: $schema=https://schema.zeabur.app/template.json
+apiVersion: zeabur.com/v1
+kind: Template
+metadata:
+    name: n8n (ai-brain-alex)
+spec:
+    description: n8n allows you to build flexible workflows focused on deep data integration.
+    icon: https://yt3.ggpht.com/vUmIWrblqncH1snPo5pOdfQ9vdJ6e5qOUxsTAyPfinb61uMXITvzee0yhDo6KJzbKbG9J3TOBw=s88-c-k-c0x00ffffff-no-rj
+    variables:
+        - key: PUBLIC_DOMAIN
+          type: DOMAIN
+          name: n8n Domain
+          description: The domain for accessing your n8n application.
+    tags:
+        - Tool
+        - Automation
+        - n8n
+    readme: |-
+        # n8n
+
+        version: 1.85.4
+
+        n8n allows you to build flexible workflows focused on deep data integration. And with sharable templates and a user-friendly UI, the less technical people on your team can collaborate on them too. Unlike other tools, complexity is not a limitation. So you can build whatever you want — without stressing over budget.
+
+        ## Usage
+
+        This template allows for **one-click deployment**. Bind a domain and start using n8n to automate your workflows.
+    services:
+        - name: postgresql
+          icon: https://raw.githubusercontent.com/zeabur/service-icons/main/marketplace/postgresql.svg
+          template: PREBUILT
+          spec:
+            source:
+                image: postgres:17
+                command:
+                    - docker-entrypoint.sh
+                    - -c
+                    - config_file=/etc/postgresql/postgresql.conf
+            ports:
+                - id: database
+                  port: 5432
+                  type: TCP
+            volumes:
+                - id: data
+                  dir: /var/lib/postgresql/data
+            instructions:
+                - type: TEXT
+                  title: Connection String
+                  content: postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${PORT_FORWARDED_HOSTNAME}:${DATABASE_PORT_FORWARDED_PORT}/${POSTGRES_DATABASE}
+                - type: TEXT
+                  title: PostgreSQL Connect Command
+                  content: psql "postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${PORT_FORWARDED_HOSTNAME}:${DATABASE_PORT_FORWARDED_PORT}/${POSTGRES_DATABASE}"
+                - type: TEXT
+                  title: PostgreSQL username
+                  content: ${POSTGRES_USERNAME}
+                  category: Credentials
+                - type: PASSWORD
+                  title: PostgresSQL password
+                  content: ${POSTGRES_PASSWORD}
+                  category: Credentials
+                - type: TEXT
+                  title: PostgresSQL database
+                  content: ${POSTGRES_DATABASE}
+                  category: Credentials
+                - type: TEXT
+                  title: PostgreSQL host
+                  content: ${PORT_FORWARDED_HOSTNAME}
+                  category: Hostname & Port
+                - type: TEXT
+                  title: PostgreSQL port
+                  content: ${DATABASE_PORT_FORWARDED_PORT}
+                  category: Hostname & Port
+            env:
+                PGDATA:
+                    default: /var/lib/postgresql/data/pgdata
+                POSTGRES_CONNECTION_STRING:
+                    default: postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
+                    expose: true
+                    readonly: true
+                POSTGRES_DATABASE:
+                    default: ${POSTGRES_DB}
+                    expose: true
+                    readonly: true
+                POSTGRES_DB:
+                    default: zeabur
+                POSTGRES_HOST:
+                    default: ${CONTAINER_HOSTNAME}
+                    expose: true
+                    readonly: true
+                POSTGRES_PASSWORD:
+                    default: ${PASSWORD}
+                    expose: true
+                POSTGRES_PORT:
+                    default: ${DATABASE_PORT}
+                    expose: true
+                    readonly: true
+                POSTGRES_URI:
+                    default: ${POSTGRES_CONNECTION_STRING}
+                    expose: true
+                    readonly: true
+                POSTGRES_USER:
+                    default: root
+                POSTGRES_USERNAME:
+                    default: ${POSTGRES_USER}
+                    expose: true
+                    readonly: true
+            configs:
+                - path: /etc/postgresql/postgresql.conf
+                  template: |
+                    # https://github.com/postgres/postgres/blob/master/src/backend/utils/misc/postgresql.conf.sample
+                    listen_addresses = '*'
+                    max_connections = 100
+                    shared_buffers = 128MB
+                    dynamic_shared_memory_type = posix
+                    max_wal_size = 1GB
+                    min_wal_size = 80MB
+                    log_timezone = 'Etc/UTC'
+                    datestyle = 'iso, mdy'
+                    timezone = 'Etc/UTC'
+                    lc_messages = 'en_US.utf8'
+                    lc_monetary = 'en_US.utf8'
+                    lc_numeric = 'en_US.utf8'
+                    lc_time = 'en_US.utf8'
+                    default_text_search_config = 'pg_catalog.english'
+                  permission: null
+                  envsubst: null
+            healthCheck:
+                type: TCP
+                port: database
+        - name: n8n
+          icon: https://img.5xcamp.us/i/2732381b-be89-478f-9f82-7d63beed4d81.png
+          dependencies:
+            - postgresql
+          template: PREBUILT
+          spec:
+            source:
+                image: n8nio/n8n:1.85.4
+            ports:
+                - id: web
+                  port: 5678
+                  type: HTTP
+            volumes:
+                - id: data
+                  dir: /root/.n8n
+            env:
+                DB_POSTGRESDB_DATABASE:
+                    default: ${POSTGRES_DATABASE}
+                DB_POSTGRESDB_HOST:
+                    default: ${POSTGRES_HOST}
+                DB_POSTGRESDB_PASSWORD:
+                    default: ${POSTGRES_PASSWORD}
+                DB_POSTGRESDB_PORT:
+                    default: ${POSTGRES_PORT}
+                DB_POSTGRESDB_USER:
+                    default: ${POSTGRES_USERNAME}
+                DB_TYPE:
+                    default: postgresdb
+                GENERIC_TIMEZONE:
+                    default: Asia/Taipei
+                N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE:
+                    default: "true"
+                N8N_DIAGNOSTICS_ENABLED:
+                    default: "false"
+                N8N_ENCRYPTION_KEY:
+                    default: ${PASSWORD}
+                N8N_HOST:
+                    default: ${ZEABUR_WEB_DOMAIN}
+                N8N_RUNNERS_ENABLED:
+                    default: "true"
+                NODE_ENV:
+                    default: production
+                WEBHOOK_URL:
+                    default: ${ZEABUR_WEB_URL}
+            healthCheck:
+                type: HTTP
+                port: web
+                http:
+                    path: /healthz
+          domainKey: PUBLIC_DOMAIN
+localization:
+    ja-JP:
+        description: n8n は柔軟なワークフローを構築し、深いデータ統合に焦点を当てることができます。
+        readme: |
+            # n8n
+
+            バージョン：1.85.4
+
+            n8n では、深いデータ統合に焦点を当てた柔軟なワークフローを構築できます。共有可能なテンプレートとユーザーフレンドリーなインターフェースにより、技術的な知識が少ないチームメンバーでも協力することができます。他のツールとは異なり、複雑さは制限ではありません。そのため、予算を気にすることなく、思い通りのものを構築できます。
+
+            ## 使用方法
+
+            このテンプレートは**ワンクリックデプロイ**をサポートしています。ドメインをバインドすれば、n8n を使用してワークフローの自動化を開始できます。
+    zh-CN:
+        description: n8n 让你构建专注于数据集成的灵活工作流。
+        readme: |
+            # n8n
+
+            版本：1.85.4
+
+            n8n 让你能够建立灵活的工作流程，专注于深度数据集成。通过可共享的模板和友好的用户界面，团队中比较不懂技术的成员也能一起协作。不像其他工具，复杂度不是限制。你可以随心所欲地建立任何东西，不用担心预算问题。
+
+            ## 使用方式
+
+            这个模板支持**一键部署**。绑定域名后就能开始使用 n8n 来自动化你的工作流程。
+    zh-TW:
+        description: n8n 讓你建立專注於資料整合的靈活工作流。
+        readme: |
+            # n8n
+
+            版本：1.85.4
+
+            n8n 讓你能夠建立靈活的工作流程，專注於深度資料整合。透過可分享的範本和友善的使用者介面，團隊中比較不懂技術的成員也能一起協作。不像其他工具，複雜度不是限制。你可以隨心所欲地建立任何東西，不用擔心預算問題。
+
+            ## 使用方式
+
+            這個模版支援**一鍵部署**。綁定網域後就能開始使用 n8n 來自動化你的工作流程。
