@@ -8,11 +8,11 @@
 
 ## 一鍵部署雲端 n8n in Zeabur
 
-需要先註冊Zeabur帳號，我的推薦碼你跟我都能多拿 5US 使用額度！
+01. 如果沒有Zeabur帳號需要先註冊，使用我的推薦碼，你跟我都能多拿 5US 使用額度！
 
 [![Deployed on Zeabur](https://zeabur.com/deployed-on-zeabur-dark.svg)](https://zeabur.com/referral?referralCode=qwedsazxc78&utm_source=qwedsazxc78&utm_campaign=oss)
 
-再點選一鍵部署 n8n 範本
+02. 再點選一鍵部署 n8n 範本
 
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/0TUVZ7)
 
