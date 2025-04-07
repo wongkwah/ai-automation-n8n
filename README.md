@@ -6,6 +6,16 @@
 
 [🔔 如果你喜歡我的內容！點我訂閱頻道起來](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
 
+## 一鍵部署雲端 n8n in Zeabur
+
+需要先註冊Zeabur帳號，我的推薦碼你跟我都能多拿 5US 使用額度！
+
+[![Deployed on Zeabur](https://zeabur.com/deployed-on-zeabur-dark.svg)](https://zeabur.com/referral?referralCode=qwedsazxc78&utm_source=qwedsazxc78&utm_campaign=oss)
+
+再點選一鍵部署 n8n 範本
+
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/0TUVZ7)
+
 ## AI 自動化系列影片 | AI-Automation
 
 01. [🔥 省力工具！發票自動整理 AI 機器人](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/1-simple-invoice-automation)

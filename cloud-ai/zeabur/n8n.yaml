@@ -2,12 +2,11 @@
 apiVersion: zeabur.com/v1
 kind: Template
 metadata:
-  name: n8n (AI Brain - Alex)
+  name: n8n (AI Brain)
 spec:
   description: |
     n8n is a powerful workflow automation platform that allows you to create AI-driven automation processes, focusing on deep data integration.
-  icon: https://yt3.ggpht.com/vUmIWrblqncH1snPo5pOdfQ9vdJ6e5qOUxsTAyPfinb61uMXITvzee0yhDo6KJzbKbG9J3TOBw=s88-c-k-c0x00ffffff-no-rj
-  coverImage: https://n8n.io/images/social/n8n-social.png
+  icon: https://i.imgur.com/AaKxvK2.png
   variables:
     - key: PUBLIC_DOMAIN
       type: DOMAIN
@@ -15,6 +14,7 @@ spec:
       description: The domain for accessing your n8n automation platform.
   tags:
     - Tool
+    - Starter
     - Automation
     - n8n
     - AI
