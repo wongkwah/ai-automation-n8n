@@ -1,4 +1,6 @@
-# 5 分鍾在 zeabur 一鍵部署 n8n｜最全手把手安裝教學｜🧠 省力知識庫
+# 如何在 zeabur 一鍵部署 n8n｜🧠 省力知識庫[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/tglGHWaSWc8)
+
+![如何在 zeabur 一鍵部署 n8n](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/13-deploy-zubear/cover.png?raw=true)
 
 # 為何選擇在 zeabur 上使用 n8n！
 

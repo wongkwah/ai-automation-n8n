@@ -14,7 +14,7 @@
 
 02. 再點選一鍵部署 n8n 範本
 
-[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/0TUVZ7)
+[![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/0TUVZ7?referralCode=qwedsazxc78)
 
 ## AI 自動化系列影片 | AI-Automation
 
@@ -47,3 +47,6 @@
 
 10. [5分鐘搞定 n8n + MCP 安裝設定｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/12-mcp-community-node)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/pAWAwSCXxig)
+
+11. [如何在 zeabur 一鍵部署 n8n｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/13-deploy-zubear)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/tglGHWaSWc8)
