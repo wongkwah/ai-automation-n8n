@@ -1,0 +1,294 @@
+{
+  "name": "MCP Deep Dive - 深入研究 MCP 運作原理｜ Resource & Prompt",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=You are a helpful assistant\n\n- use airbnb for searching \naccommodation\n- use airtable for getting Customer information from workspace (app5DqpHK079EzzQj)\n\nairtable default setting \n- baseid: app5DqpHK079EzzQj\n- tableid: Customer\n\nmake sure to List Prompt and List Resource\n\n輸出規則\n地區：台灣  \n時間：UTC8\n輸出語言：繁體中文"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -280,
+        -80
+      ],
+      "id": "a4c8cb56-c375-4e8d-8a20-4b7a664855ff",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -500,
+        -80
+      ],
+      "id": "3527eaf6-e00b-4f75-b88b-2ca618907141",
+      "name": "When chat message received",
+      "webhookId": "e2080c36-106a-4976-a3b6-5b8fd9d4fc5f"
+    },
+    {
+      "parameters": {
+        "content": "## AI Agent ＋ 多個 MCP 工具\n\n",
+        "height": 720,
+        "width": 1260,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -540,
+        -240
+      ],
+      "id": "184c7f8b-b505-407d-9f83-27857e22048d",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## API 工具 with MCP\n",
+        "height": 380,
+        "width": 840
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        60
+      ],
+      "id": "08b34863-41b3-47c7-a56d-3fca42c852d1",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -360,
+        140
+      ],
+      "id": "20914a8f-759b-45fc-8384-bb78609a9fbc",
+      "name": "OpenAI 4o",
+      "credentials": {
+        "openAiApi": {
+          "id": "vo1Kz0pllXw8z5Cv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -240,
+        140
+      ],
+      "id": "2449653d-ca96-4e5e-97b7-fafd4e713f64",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "operation": "listResources"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        160,
+        120
+      ],
+      "id": "8ab80fe5-f31c-4360-93d7-a50c048affc7",
+      "name": "Airbnb Resource",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "otSjtnY4JcpjSwo8",
+          "name": "MCP: Airbnb"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "listPrompts"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        20,
+        120
+      ],
+      "id": "a2f3387a-c2bd-47cb-8813-4b818d8eae0d",
+      "name": "Airbnb Prompt",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "otSjtnY4JcpjSwo8",
+          "name": "MCP: Airbnb"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "listPrompts"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        360,
+        240
+      ],
+      "id": "192cfd64-4b4a-4b20-9255-5c3a625da0bf",
+      "name": "Airtable Prompt",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "CGlTcs3JceMWSwbJ",
+          "name": "MCP: Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "listResources"
+      },
+      "type": "n8n-nodes-mcp.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        500,
+        240
+      ],
+      "id": "14cd9ed7-6345-40d1-b5fd-f924437dd64d",
+      "name": "Airtable Resource",
+      "credentials": {
+        "mcpClientApi": {
+          "id": "CGlTcs3JceMWSwbJ",
+          "name": "MCP: Airtable"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airbnb Resource": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airbnb Prompt": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable Prompt": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable Resource": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "775de9ac-ec5e-4505-9e4d-317e8f7cc1b7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "pI6I7SvUPzBueLZf",
+  "tags": [
+    {
+      "createdAt": "2025-01-21T09:27:33.737Z",
+      "updatedAt": "2025-01-21T09:27:33.737Z",
+      "id": "3mUwzlNRCVnIA6p4",
+      "name": "brain"
+    },
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    },
+    {
+      "createdAt": "2025-03-17T08:20:09.856Z",
+      "updatedAt": "2025-03-17T08:20:09.856Z",
+      "id": "Xk0zSy3b5bn7QLYA",
+      "name": "mcp"
+    }
+  ]
+}

@@ -33,20 +33,23 @@
 05. [💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/5-xAI-ai-agent)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Z1uqqLNAB4U)
 
-06. [🔥 省力工具！超級翻譯機，1次翻譯100個段落，英翻中、中翻英都可以一次搞定](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
+07. [🔥 省力工具！超級翻譯機，1次翻譯100個段落，英翻中、中翻英都可以一次搞定](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/LtCnZTV3cgs)
 
-07. [🔥 省力工具！超級翻譯機，中英日韓翻譯一次搞定！](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
+08. [🔥 省力工具！超級翻譯機，中英日韓翻譯一次搞定！](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/PgT0_F56Eb4)
 
-08.  [什麼是 MCP？ 3 個 n8n AI Agent 情境解析 MCP 使用](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
+09.  [什麼是 MCP？ 3 個 n8n AI Agent 情境解析 MCP 使用](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/MwHuCtkzvdo)
 
-09. [5分鐘搞定n8n + Google OAuth｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/10-n8n-with-google-oauth)
+10. [5分鐘搞定n8n + Google OAuth｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/10-n8n-with-google-oauth)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/V-iT-HbBOew)
 
-10. [5分鐘搞定 n8n + MCP 安裝設定｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/12-mcp-community-node)
+11.  [MCP Deep Dive - 深入研究 MCP 運作原理、架構與元件理解｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/6aOw26BVy4M)
+
+12. [5分鐘搞定 n8n + MCP 安裝設定｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/12-mcp-community-node)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/pAWAwSCXxig)
 
-11. [如何在 zeabur 一鍵部署 n8n｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/13-deploy-zubear)
+13. [如何在 zeabur 一鍵部署 n8n｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/13-deploy-zubear)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/tglGHWaSWc8)
