@@ -21,15 +21,19 @@
 
 ---
 
-## 🔧 運作方式
+## 🔧 運作方式：六大板塊深入研究
 
-1. **接收** 並建立 MCP 基本概念。
-2. **呈現** MCP 在 n8n 中的兩類應用情境，包括：
-   - 作為個人助理，自動查詢與預訂。
-   - 自動搜尋並存取每日關鍵字時事。
-3. **比較** MCP 在促成工具與資源協作中的功能。
-4. **解釋** 開發者與終端用戶如何善用 MCP 進行高效任務處理。
+1. **1分鐘快速了解 MCP 運作原理**
+2. **Demo**：n8n AI Agent + MCP 的 2 種使用情境
+3. **MCP 架構理解**：講給阿嬤聽的版本
+4. **MCP 架構理解**：講給開發者聽的版本
+5. **MCP Deep Dive** - 5 大金剛！MCP 核心元件
+6. **MCP Deep Dive** - 5 大角色球員！MCP 5 大支援功能
 
-🔥 MCP 第一部介紹 - https://youtu.be/MwHuCtkzvdo
-🔥 n8n 設定 MCP - https://youtu.be/pAWAwSCXxig
-🔥 省力工具箱 - https://www.youtube.com/playlist?list=PLUf88uk7T54I83MBdbuXgUuA8rVklF4FA
+---
+
+## 參考資源
+
+* 🔥 MCP 第一部介紹 - https://youtu.be/MwHuCtkzvdo
+* 🔥 n8n 設定 MCP - https://youtu.be/pAWAwSCXxig
+* 🔥 省力工具箱 - https://www.youtube.com/playlist?list=PLUf88uk7T54I83MBdbuXgUuA8rVklF4FA
