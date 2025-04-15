@@ -41,7 +41,7 @@ services:
       # Host configuration
       - N8N_HOST=${N8N_HOST:-localhost}
       - N8N_PORT=${N8N_PORT:-5678}
-      - WEBHOOK_URL=${NGROK_PUBLIC_URL}
+      - WEBHOOK_URL=${NGROK_PUBLIC_URL:-http://localhost:5678}
 
       # Execution settings
       - GENERIC_TIMEZONE=UTC

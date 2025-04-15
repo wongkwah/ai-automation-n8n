@@ -58,7 +58,7 @@ networks:
     driver: bridge
 
 volumes:
-  n8n_postgres_data:
+  n8n_public_postgres_data:
     name: n8n_postgres_data  # Stores PostgreSQL database files
-  n8n_data:
+  n8n_public_data:
     name: n8n_data  # Stores n8n workflows, credentials, and binary data

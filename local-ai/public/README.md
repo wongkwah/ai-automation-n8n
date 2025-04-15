@@ -62,7 +62,7 @@ docker-compose up -d
 ### 4. 訪問 n8n
 
 * **本地訪問**：http://localhost:5678
-* **公開訪問**：ngrok URL 將顯示在 ngrok 容器日誌中：
+* **公開訪問**：ngrok URL 將顯示在 ngrok 後台中：
 
 預設憑證：
 * 用戶名：admin
@@ -70,10 +70,10 @@ docker-compose up -d
 
 可以在 `.env` 檔案中更改這些憑證。
 
-確認ngrok 容器日誌：
+重啟 n8n 容器，改變 URL：
 
 ```bash
-docker-compose logs ngrok
+docker-compose restart n8n
 ```
 
 ### 5. 停止服務
