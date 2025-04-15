@@ -1,50 +1,83 @@
-# Enhanced n8n Basic Docker Setup
+# n8n 基本 Docker Compose 設置
 
-This directory contains an enhanced version of the basic n8n Docker Compose setup. The configuration provides a solid foundation for running n8n locally with improved reliability, security, and performance.
+用於運行 n8n 工作流自動化工具
+此配置為在本地運行 n8n 容器所需的基礎設置，並搭配 PostgreSQL 資料庫。
 
-## Usage
+## 功能特點
 
-### Environment Configuration
+* n8n 工作流自動化平台
+* PostgreSQL 資料庫用於持久化儲存
+* 環境變數配置
+* 網路和檔案配置管理
 
-1. Copy the example environment file:
+## 使用方法
+
+### 1. 創建 .env 檔案
+
+複製範例環境檔案：
 
 ```bash
    cp .env.example .env
-   ```
+```
 
-2. Edit the `.env` file to customize your configuration:
+編輯 `.env` 檔案並設置你的環境變數：
 
 ```bash
    vim .env
-   ```
+```
 
-### Starting the Services
+環境變數：
 
-To start the services:
+```
+# 資料庫配置
+POSTGRES_USER=n8n
+POSTGRES_PASSWORD=n8npass
+POSTGRES_DB=n8n
+POSTGRES_PORT=5432
+
+# n8n 配置
+N8N_PORT=5678
+N8N_BASIC_AUTH_USER=admin
+N8N_BASIC_AUTH_PASSWORD=adminpass
+N8N_HOST=localhost
+WEBHOOK_URL=http://localhost:5678
+```
+
+### 2. 啟動服務
 
 ```bash
 docker-compose up -d
 ```
 
-Access n8n at: http://localhost:5678 (or your configured host/port)
+* **本地訪問**：http://localhost:5678
+* **公開訪問**：ngrok URL 將顯示在 ngrok 容器日誌中：
 
-Default credentials:
-* Username: admin
-* Password: adminpass
+預設憑證：
+* 用戶名：admin
+* 密碼：adminpass
 
-You can change these credentials in the `.env` file.
+可以在 `.env` 檔案中更改這些憑證。
 
-## Optional Features
+### 3. 停止服務
 
-### Customization
+```bash
+docker-compose down
+```
 
-You can modify the following settings as needed:
+要移除所有資料檔案：
 
-* Database credentials
-* n8n authentication credentials
-* Port mappings
-* Volume names
+```bash
+docker-compose down -v
+```
 
-## Documentation
+## 環境變數
 
-For more information about n8n configuration options, see the [official n8n documentation](https://docs.n8n.io/hosting/installation/docker/).
+| 變數 | 描述 | 預設值 |
+|----------|-------------|---------|
+| POSTGRES_USER | PostgreSQL 用戶名 | n8n |
+| POSTGRES_PASSWORD | PostgreSQL 密碼 | change_this_password |
+| POSTGRES_DB | PostgreSQL 資料庫名稱 | n8n |
+| POSTGRES_PORT | PostgreSQL 端口 | 5432 |
+| N8N_PORT | n8n 網頁界面端口 | 5678 |
+| N8N_BASIC_AUTH_USER | n8n 基本認證用戶名 | admin |
+| N8N_BASIC_AUTH_PASSWORD | n8n 基本認證密碼 | change_this_password | |

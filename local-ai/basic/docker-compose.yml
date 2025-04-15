@@ -44,7 +44,7 @@ services:
       - WEBHOOK_URL=${WEBHOOK_URL:-http://localhost:5678}
 
       # Execution settings
-      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-UTC}
+      - GENERIC_TIMEZONE=UTC
 
     volumes:
       - n8n_data:/home/node/.n8n
