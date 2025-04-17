@@ -188,6 +188,8 @@ spec:
           # n8n Configuration
           GENERIC_TIMEZONE:
             default: Asia/Taipei
+          TZ:
+            default: Asia/Taipei
           N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE:
             default: "true"
           N8N_DIAGNOSTICS_ENABLED:

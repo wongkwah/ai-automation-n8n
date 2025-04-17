@@ -1,8 +1,6 @@
 # n8n with PostgreSQL and ngrok for public access
 # n8n documentation: https://docs.n8n.io/hosting/installation/docker/
 
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15.3-alpine
@@ -44,7 +42,9 @@ services:
       - WEBHOOK_URL=${NGROK_PUBLIC_URL:-http://localhost:5678}
 
       # Execution settings
-      - GENERIC_TIMEZONE=UTC
+      - GENERIC_TIMEZONE=Asia/Taipei
+      - TZ=Asia/Taipei
+
     depends_on:
       - postgres
     volumes:
@@ -74,6 +74,6 @@ networks:
 
 volumes:
   n8n_postgres_data:
-    name: n8n_postgres_data  # Stores PostgreSQL database files
+    name: n8n_public_postgres_data  # Stores PostgreSQL database files
   n8n_data:
-    name: n8n_data  # Stores n8n workflows, credentials, and binary data
+    name: n8n_public_data  # Stores n8n workflows, credentials, and binary data
