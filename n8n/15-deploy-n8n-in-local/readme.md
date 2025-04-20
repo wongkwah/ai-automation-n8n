@@ -14,7 +14,7 @@
 
 [專案連結](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/local-ai/basic)
 
-## public 進階版 n8n 部署 （ngrok 可進行公開訪問）
+## public 進階版 n8n 部署 （ngrok 可進行公開存取）
 
 [專案連結](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/local-ai/public)
 

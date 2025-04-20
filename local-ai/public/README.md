@@ -1,13 +1,13 @@
-# n8n 基本 Docker Compose 設置，加上 ngrok 可進行公開訪問
+# n8n 基本 Docker Compose 設置，加上 ngrok 可進行公開存取
 
 用於運行 n8n 工作流自動化工具
-此配置為在本地運行 n8n 容器所需的基礎設置，並搭配 PostgreSQL 資料庫和 ngrok 進行公開訪問。
+此配置為在本地運行 n8n 容器所需的基礎設置，並搭配 PostgreSQL 資料庫和 ngrok 進行公開存取。
 
 ## 功能特點
 
 * n8n 工作流自動化平台
 * PostgreSQL 資料庫用於持久化儲存
-* ngrok 用於安全的公開訪問
+* ngrok 用於安全的公開存取
 * 環境變數配置
 * 網路和檔案配置管理
 
@@ -62,7 +62,7 @@ docker-compose up -d
 ### 4. 訪問 n8n
 
 * **本地訪問**：http://localhost:5678
-* **公開訪問**：ngrok URL 將顯示在 ngrok 後台中：
+* **公開存取**：ngrok URL 將顯示在 ngrok 後台中：
 
 預設憑證：
 * 用戶名：admin
