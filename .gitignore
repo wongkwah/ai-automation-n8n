@@ -170,3 +170,4 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 .qodo
+n8n/.DS_Store
