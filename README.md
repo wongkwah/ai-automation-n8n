@@ -58,4 +58,4 @@
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Ictp1DCPUg4)
 
 15. [0 成本 n8n 工作流，本地電腦一鍵部署 n8n＋ngrok 幫你服務公開存取｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/15-deploy-n8n-in-local)
-   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Ictp1DCPUg4)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/E_cqlz7VGgs)
