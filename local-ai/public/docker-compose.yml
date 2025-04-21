@@ -17,7 +17,7 @@ services:
       - n8n_network
 
   n8n:
-    image: n8nio/n8n:stable
+    image: n8nio/n8n:latest
     restart: unless-stopped
     ports:
       - "${N8N_PORT:-5678}:5678"  # Port for local development and ngrok
@@ -62,8 +62,6 @@ services:
       - "http://host.docker.internal:5678"
     environment:
       - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
-    depends_on:
-      - n8n
     networks:
       - n8n_network
 
