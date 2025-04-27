@@ -63,5 +63,5 @@
 16. [n8n think tool 升級 AI Agent！GPT4.1 + 思考指揮官，解決複雜任務更容易！Anthropic's Think Method｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/16-n8n-ai-agent-with-think-tool)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/E_cqlz7VGgs)
 
-17. [8 分鐘設定 n8n 與 Line 個人助理 Message API 連結！Webhook 回應訊息原來這麼簡單｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/17-n8n-line-message-api)
+17. [8分鐘學會用 n8n 串接 LINE Message API 與 Webhook 實戰教學｜打造個人 AI 助理｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/17-n8n-line-message-api)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/HJKDHJ5x1F0)
