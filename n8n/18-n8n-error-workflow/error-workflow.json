@@ -1,0 +1,302 @@
+{
+  "name": "Error Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "qwedsazxc78@gmail.com",
+        "subject": "=Workflow {{ $json.workflow.name }} Failed!",
+        "message": "=<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Workflow Error Notification</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            background-color: #f4f4f4;\n            color: #333;\n            margin: 0;\n            padding: 0;\n        }\n\n        .container {\n            max-width: 600px;\n            margin: 20px auto;\n            background-color: #ffffff;\n            border-radius: 8px;\n            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n            overflow: hidden;\n            border: 1px solid #ddd;\n        }\n\n        .header {\n            background-color: #d32f2f;\n            color: white;\n            text-align: center;\n            padding: 10px 20px;\n            font-size: 20px;\n        }\n\n        .content {\n            padding: 20px;\n            line-height: 1.6;\n        }\n\n        .label {\n            font-weight: bold;\n            color: #555;\n        }\n\n        .important {\n            color: #d32f2f;\n            font-weight: bold;\n        }\n\n        .section-title {\n            color: #d32f2f;\n            border-bottom: 1px solid #ddd;\n            padding-bottom: 5px;\n        }\n\n        .code-block {\n            background-color: #f9f9f9;\n            border-left: 4px solid #d32f2f;\n            padding: 10px;\n            font-family: 'Courier New', monospace;\n            color: #333;\n            white-space: pre-wrap;\n            word-wrap: break-word;\n            margin-top: 10px;\n        }\n\n        .footer {\n            background-color: #eaeaea;\n            text-align: center;\n            padding: 10px;\n            font-size: 12px;\n            color: #777;\n        }\n    </style>\n</head>\n\n<body>\n    <div class=\"container\">\n        <div class=\"header\">\n            Workflow Error Notification\n        </div>\n        <div class=\"content\">\n            <p><span class=\"label\">Workflow:</span> <span class=\"important\">{{ $json.workflow.name }}</span></p>\n            <p><span class=\"label\">Date & Time:</span> {{ $now }}</p>\n            <p><span class=\"label\">Last Node Executed:</span> {{ $json.execution.lastNodeExecuted }}</p>\n\n            <h3 class=\"section-title\">Error Details</h3>\n            <div class=\"code-block\">\n                {{ $json.execution.error.message }}\n            </div>\n\n            <h3 class=\"section-title\">Error Stack</h3>\n            <div class=\"code-block\">\n                {{ $json.execution.error.stack }}\n            </div>\n        </div>\n        <div class=\"footer\">\n            This is an automated message from your workflow monitoring system. Please do not reply.\n        </div>\n    </div>\n</body>\n\n</html>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        260,
+        0
+      ],
+      "id": "bdab2e8a-b76c-4fdb-857a-f3a04cf4fb8e",
+      "name": "Gmail",
+      "webhookId": "aeeb577f-f825-4050-a8f3-ebf7965d5cf8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "xhKbueCrvtZ602Y6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1AI88eTPYIKIjdKkmtBWO7DYODbnZIqaijGitJKmhkxI/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "log",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1AI88eTPYIKIjdKkmtBWO7DYODbnZIqaijGitJKmhkxI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Workflow": "={{ $json.workflow.name }}",
+            "Timestamp": "={{ $now.format('yyyy-MM-dd hh:mma') }}",
+            "URL": "={{ $json.execution.url }}",
+            "Error Message": "={{ $json.execution.error.message }}",
+            "Node": "={{ $json.execution.error.node.name  }} ",
+            "Execution ID": "={{ $json.execution.id }}"
+          },
+          "matchingColumns": [
+            "Timestamp"
+          ],
+          "schema": [
+            {
+              "id": "Workflow",
+              "displayName": "Workflow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Node",
+              "displayName": "Node",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Error Message",
+              "displayName": "Error Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Execution ID",
+              "displayName": "Execution ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        260,
+        200
+      ],
+      "id": "61163476-816f-45a0-8f76-cd7a27249877",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.line.me/v2/bot/message/push",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"to\": \"{{ $json.line_uid }}\",\n  \"messages\": [\n    {\n      \"type\": \"text\",\n      \"text\": \"{{ $json.message }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "c819d979-aa96-4f43-b171-0f0cd423cb2e",
+      "name": "Line : Push Message",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        480,
+        420
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "2zIiyAZGUTVMwHep",
+          "name": "Header Auth - Line n8n 錯誤處理"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6278f340-6287-4e89-b774-f6c584954d5b",
+              "name": "line_uid",
+              "type": "string",
+              "value": "Uee67d82636f96a3c2d3d42a13f33aef2"
+            },
+            {
+              "id": "9f85ac53-9907-448d-afa4-c54b41ddf868",
+              "name": "message",
+              "value": "=工作流程錯誤-{{ $('Error Trigger').item.json.workflow.name }}\\n{{ $('Error Trigger').item.json.execution.error.node.name }}發生錯誤於{{ $now.format('yyyy-MM-dd hh:mma') }}。\\n\\n錯誤訊息為：{{ $('Error Trigger').item.json.execution.error.message }}\\n在這裡查看此執行記錄：{{ $('Error Trigger').item.json.execution.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "50565887-e372-4bee-9dc3-7fd51154735c",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        260,
+        420
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "content": "## 錯誤處理工作流，觸發三種通知方式\n\n1. Email\n2. Google sheet\n3. Line \n\n",
+        "height": 780,
+        "width": 890,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        -160
+      ],
+      "id": "ca8b1b1e-cecf-4a21-af21-a9587a0ec984",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8f142f86-a996-42e4-981e-0d74e9b344d3",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "content": "## 快速選擇指南\n\n- 如果你希望馬上知道錯誤，且能行動快速反應 ➔ 用 LINE。\n- 如果你需要有個正式紀錄，但不急著第一時間回應 ➔ 用 Email。\n- 如果你要長期統計與分析錯誤趨勢 ➔ 用 Google Sheets。\n\n\nAlex 碎碎念：我個人喜歡用 Google Sheets 紀錄，用 Email 來通知我！\n\nLine 相關設定，可以參考：https://youtu.be/HJKDHJ5x1F0",
+        "height": 780,
+        "width": 450
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        -160
+      ],
+      "id": "599f81f9-e7dc-45f1-aaf3-f749ec7ffada",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Line : Push Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Taipei",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 300
+  },
+  "versionId": "e9601d58-ef1f-4ddd-bd88-d6a334423ec2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "0fS0IZwY5xyvbexo",
+  "tags": [
+    {
+      "createdAt": "2025-02-20T10:56:36.149Z",
+      "updatedAt": "2025-02-20T10:56:36.149Z",
+      "id": "qc8YQ51rp9Uf0sOf",
+      "name": "prd"
+    },
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    }
+  ]
+}
