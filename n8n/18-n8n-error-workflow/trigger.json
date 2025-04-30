@@ -1,0 +1,118 @@
+{
+  "name": "n8n 錯誤處理 Error Handling - 觸發錯誤｜🧠 省力知識庫",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        20
+      ],
+      "id": "e762c027-7b2a-4ca1-bf7c-8e1e83be23de",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -180
+      ],
+      "id": "86af775f-85ed-447e-9b9e-a1969b9d0897",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://www.example.error/",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        -80
+      ],
+      "id": "bdb13147-71ba-44f0-b11c-539a538bae70",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "content": "## 觸發錯誤\n\nn8n 工作流\n- 只有在啟動時，才會觸發後續錯誤工作流，\n- 點擊 Test workflow，是不會主動觸發後續錯誤工作流\n- 該工作流每30s錯誤一次，方便用來測試你的n8n 錯誤處理工作流\n",
+        "height": 560,
+        "width": 890,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        -380
+      ],
+      "id": "4cf7bc50-66e8-4a5f-9db8-c905d23bac95",
+      "name": "Sticky Note2"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Taipei",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 900,
+    "errorWorkflow": "0fS0IZwY5xyvbexo"
+  },
+  "versionId": "687d12ea-8bf3-4e1f-b26e-5718cec6b54f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "FeRQssolCDuYjgFR",
+  "tags": [
+    {
+      "createdAt": "2025-02-20T10:56:36.149Z",
+      "updatedAt": "2025-02-20T10:56:36.149Z",
+      "id": "qc8YQ51rp9Uf0sOf",
+      "name": "prd"
+    },
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    }
+  ]
+}
