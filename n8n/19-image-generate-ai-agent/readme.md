@@ -1,6 +1,8 @@
-# 🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent
+# 🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Yt0gVZX_OGQ)
 
 ![OpenAI GPT-image-1 電商品圖 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/19-image-generate-ai-agent/cover.png?raw=true)
+
+![alt text](<YT Cover (2).png>)
 
 ## 作者資訊
 
