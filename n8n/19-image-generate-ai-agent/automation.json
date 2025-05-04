@@ -1,0 +1,667 @@
+{
+  "name": "🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立靈感來源 AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.body.events[0].source.userId || $json.sessionId }} ",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        60,
+        760
+      ],
+      "id": "3f05a0f2-09af-4831-95c3-3f4b707b93aa",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "description": "=你是「商業資料分析師」，負責將使用者提供的商品資訊進行整理、分析與優化，生成適合外部API（如OpenAI Image Generation）使用的高品質英文描述。\n\n你的工作流程如下：\n\n1. 依序確認以下三個核心資訊是否完整：\n   - 商品種類（顏色、材質、風格）\n   - 模特兒特徵（性別、年齡感、風格、表情）\n   - 背景環境（場景敘述）\n   - 資訊如果沒有完整收集，請向使用者要求更多資訊\n\n2. 若資訊有缺漏，自行合理補齊（推測常見合理預設），但在必要時保持模糊以避免錯誤\n\n3. 將以上資訊整合成：\n   - 一段流暢自然的英文Prompt\n   - 自動加入提升品質的描述（如 \"high-quality\", \"photo studio lighting\", \"professional photography style\"）\n\n4. 確保輸出的Prompt語氣自然、有吸引力，適合商品展示\n\n禁止事項：\n- 不呼叫外部API\n- 不做圖片生成\n- 專注於商業邏輯推演與高質Prompt撰寫\n\n（範例：將「白色T恤、年輕女性、咖啡館背景」整理成完整英文Prompt）\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        300,
+        760
+      ],
+      "id": "1f0256de-457a-4bee-9241-a65aed78d8e4",
+      "name": "Think"
+    },
+    {
+      "parameters": {
+        "content": "## Thinking\n\n",
+        "height": 220,
+        "width": 230,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        220,
+        680
+      ],
+      "id": "69c86731-d1f6-4d8f-bcf6-ddf0b5facda5",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -160,
+        760
+      ],
+      "id": "3b80e765-a48d-45c4-a6d0-b9c4cf8a4ae8",
+      "name": "OpenAI 4.1",
+      "credentials": {
+        "openAiApi": {
+          "id": "vo1Kz0pllXw8z5Cv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 記憶\n\n",
+        "height": 220,
+        "width": 210,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        680
+      ],
+      "id": "80bf7ceb-4613-4ba4-af2b-b8469c986834",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"prompt\": \"California\",\n\t\"image_numbers\": 1\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        760
+      ],
+      "id": "21585276-7a4f-45e7-a992-19c8ad8b690c",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.line.me/v2/bot/message/reply",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"replyToken\": \"{{ $('Webhook from Line Message').item.json.body.events[0].replyToken }}\",\n  \"messages\": [\n    {\n      \"type\": \"text\",\n      \"text\": \"Model-{{ $('Model').item.json.model }}-生成圖片下載網址：{{ $json.webContentLink }}\"\n    },\n    {\n      \"type\": \"image\",\n      \"originalContentUrl\": \"{{ $json.thumbnailLink }}\",\n      \"previewImageUrl\": \"{{ $json.thumbnailLink }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "4089b80a-ba28-4b15-a9ee-6476a29443d3",
+      "name": "Line : Reply Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1420,
+        300
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "v799msNWDyFak0kO",
+          "name": "Header Auth - Line Alex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput || $('Webhook from Line Message').item.json.body.events[0].message.text }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=你是一個業務分析師，產生電商的圖片與商品描述，幫助銷售\n請根據用戶需求產生 open ai 的 gpt-image-1 api 的 prompt\n\n## 任務\n1. 接收從內部 Think Tool 處理完的正式提示（Prompt）\n2. 根據收到的Prompt，調用\"HTTP Request 圖片生成工具\" API來生成圖片\n3. 成功後將生成的 base64 string，往後輸出到成功流程方便後續存成圖片\n\n記住：  \n- 不自行更改Prompt  \n- 不進行商業邏輯推論  \n- 專注執行與外部服務交互\n\n輸出json 格式\n{\n\t\"prompt\": \"Output prompt\",\n\t\"image_numbers\": 1\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        120,
+        400
+      ],
+      "id": "a56a8a19-4953-43b5-be93-b89da45ecd7b",
+      "name": "Product Image Agent",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "create-image",
+        "options": {}
+      },
+      "id": "afbc54b2-a6e0-43bc-930d-249c39379601",
+      "name": "Webhook from Line Message",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        -580,
+        400
+      ],
+      "webhookId": "83f6799b-f199-4e5c-9e8d-eab567733261",
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "b63773bb-f010-4018-8142-240c9aaa4570",
+              "operator": {
+                "name": "filter.operator.equals",
+                "type": "string",
+                "operation": "equals"
+              },
+              "leftValue": "={{$('Webhook from Line Message').item.json.body.events[0].type}}",
+              "rightValue": "message"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "8ffefce7-d4ac-498e-bf22-051055044152",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        -160,
+        400
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "content": "## 結構化輸出\n\n",
+        "height": 220,
+        "width": 230,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        680
+      ],
+      "id": "42cde617-e973-48c5-9a59-85c36b2f2902",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## 產生圖片 ＋ 回傳 Line 個人助理\n\n",
+        "height": 420,
+        "width": 1210
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        220
+      ],
+      "id": "c42720af-4716-4a20-a8c7-36de5ad9da25",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## LLM - GPT 4.1\n\n",
+        "height": 220,
+        "width": 210,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        680
+      ],
+      "id": "9600225a-8497-4f2c-ac11-2c4f452e6af5",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Line webhook + GPT Model\n\n- dall-e-2\n- dall-e-3\n- gpt-image-1\n\n",
+        "height": 260,
+        "width": 790
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        320
+      ],
+      "id": "7240ace9-0485-4751-82ea-a38af404dd8d",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "db9db45d-577b-42a3-b06e-e1a69c7f6974",
+              "name": "model",
+              "value": "gpt-image-1",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -360,
+        400
+      ],
+      "id": "61b15a52-c336-4f1c-8cef-8c83e5ddaef7",
+      "name": "Model"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data[0].b64_json",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        980,
+        300
+      ],
+      "id": "a8f28f3b-e0b4-42d5-aacd-a77d8eb238d3",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "name": "=OpenAI-{{ $('Model').item.json.model }}-電商商品範例.png\n",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1-PXuV9fg4K6vAFcvbyxzG3Pf0U3_4zvC",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        300
+      ],
+      "id": "95c3c816-25f3-4d14-828f-afeca6b81d99",
+      "name": "Upload Image",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "FOJsxE5vAvlfyH16",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Model').item.json.model }}",
+                    "rightValue": "gpt-image-1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "4c785677-787f-40e2-8612-6a248d8027a4"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "655e268b-137b-4e69-8fcd-a4354912ae4b",
+                    "leftValue": "={{ $('Model').item.json.model }}",
+                    "rightValue": "gpt-image-1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        520,
+        400
+      ],
+      "id": "ad2e4cf8-4b46-4f16-a60c-a6ec642a422d",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "={{ $('Model').item.json.model }}"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.output.prompt }}"
+            },
+            {
+              "name": "n",
+              "value": "={{ $json.output.image_numbers }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        300
+      ],
+      "id": "a38f6569-f448-46ca-9139-55657547d275",
+      "name": "gpt-image-1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "YTi08zt9SSPHxDEj",
+          "name": "Google Gemini(PaLM) Api account"
+        },
+        "openAiApi": {
+          "id": "vo1Kz0pllXw8z5Cv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "={{ $('Model').item.json.model }}"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.output.prompt }}"
+            },
+            {
+              "name": "n",
+              "value": "={{ $json.output.image_numbers }}"
+            },
+            {
+              "name": "response_format",
+              "value": "b64_json"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        480
+      ],
+      "id": "5ff2c17d-539e-4188-8e71-fe42eede054d",
+      "name": "dall-e",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "YTi08zt9SSPHxDEj",
+          "name": "Google Gemini(PaLM) Api account"
+        },
+        "openAiApi": {
+          "id": "vo1Kz0pllXw8z5Cv",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Product Image Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "Product Image Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI 4.1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Product Image Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Product Image Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Product Image Agent": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook from Line Message": {
+      "main": [
+        [
+          {
+            "node": "Model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Product Image Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Line : Reply Image": {
+      "main": [
+        []
+      ]
+    },
+    "Model": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Upload Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Image": {
+      "main": [
+        [
+          {
+            "node": "Line : Reply Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "gpt-image-1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "dall-e",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "gpt-image-1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "dall-e": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Taipei",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 900,
+    "errorWorkflow": "0fS0IZwY5xyvbexo"
+  },
+  "versionId": "2e2731fa-fb10-437c-be8e-be8bdceab371",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "DGJeEEeNdIOUDZxK",
+  "tags": [
+    {
+      "createdAt": "2025-02-20T10:56:36.149Z",
+      "updatedAt": "2025-02-20T10:56:36.149Z",
+      "id": "qc8YQ51rp9Uf0sOf",
+      "name": "prd"
+    },
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    }
+  ]
+}
