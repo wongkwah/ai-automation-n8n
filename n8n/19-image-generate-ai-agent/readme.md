@@ -1,4 +1,4 @@
-# 🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Yt0gVZX_OGQ)
+# 🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/DCjv00f6lXI)
 
 ![OpenAI GPT-image-1 電商品圖 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/19-image-generate-ai-agent/cover.png?raw=true)
 
@@ -16,22 +16,24 @@
 專為「電商商品圖片」設計打造的 AI Agent，幫助大家思考圖片生成靈感：
 
 * ✅ 以 LINE 輸入商品描述，一鍵生成商品圖片
-* ✅ 自動同步生成圖至 Google Drive，方便雲端存取與管理
-* ✅ 支援多種模型 DALL·E 2/3、GPT-image-1 ，可以自由切換
-* ✅ 全程自動化，利用 prompt提示詞，即可產製多風格商用圖片初版
+* ✅ 支援多種模型 DALL·E 2/3、GPT-image-1 生成圖片，自由切換
+* ✅ 自動同步生成圖片至 Google Drive，方便後續雲端存取與管理
+* ✅ 全程自動化，利用 prompt 提示詞，即可產製多風格商用圖片初版
+* ✅ LINE 以終爲始，用 LINE 快速瀏覽生成圖片，讓靈感不丟失！
 
 ---
 
 ## 生成圖片範例與參考
 
 生成規則：
+
 * 商品種類與樣式
 * 使用商品的模特
 * 相關場景
 
 ### 商品1 - 紅色洋裝
 
-```
+```bash
 請生成紅色的洋裝商品
 25-30歲的亞洲女性
 在晴朗的海邊
@@ -43,7 +45,7 @@
 
 ### 商品2 - 太陽眼鏡
 
-```
+```bash
 請生成帥氣的太陽眼鏡商品
 35-40歲的歐洲男性
 在地鐵站

@@ -66,5 +66,11 @@
 17. [8分鐘學會用 n8n 串接 LINE Message API 與 Webhook 實戰教學｜打造個人 AI 助理｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/17-n8n-line-message-api)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/HJKDHJ5x1F0)
 
-17. [8 分鐘學會 n8n 錯誤處理工作流 Error Workflow！3大通知方法 LINE、Email、Google Sheet 即時掌握 99% 的錯誤｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/18-n8n-error-workflow)
+18. [8 分鐘學會 n8n 錯誤處理工作流 Error Workflow！3大通知方法 LINE、Email、Google Sheet 即時掌握 99% 的錯誤｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/18-n8n-error-workflow)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Yt0gVZX_OGQ)
+
+19. [🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/19-image-generate-ai-agent)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/DCjv00f6lXI)
+
+20. [🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/21-n8n-shopping-search-agent)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/5pkLFXLQp6U)
