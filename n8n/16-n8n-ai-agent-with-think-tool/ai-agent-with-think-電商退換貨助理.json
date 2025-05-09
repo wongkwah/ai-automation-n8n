@@ -20,7 +20,7 @@
     {
       "parameters": {
         "options": {
-          "systemMessage": "=你是一位智慧退換貨 AI 審核助理，請根據下列資訊與 thinkg tool 協助進行邏輯推理，並思考是否應該「自動退貨」、「自動換貨」或「轉人工審核」\n\n## Think:\n- use thinkg tool for directing complex task to organize things from all tools\n\n## Tool:\n- use n8n MCP client Store Order for order list - 請從 airtable 中獲取用訂單資訊與用戶風險分數\n  Order 方法： 用戶訂單資訊 - filter 可以使用 user_name 取的訂單列表在判斷產品\n- use n8n MCP client Store User Risk for userrisk - 請從 airtable 中獲取用訂單資訊與用戶風險分數\n  UserRisk 方法: 用戶風險分數 - filter 可以使用 user_name\n- use n8n MCP client Email for email me notification mail \n  - use gmail 的格式\n  - 請使用 html 的 gmail 語法寄送\n\n\n## info\nmy email info: qwedsazxc78@gmail.com\n\n## 輸出規則\n地區：台灣  \n時間：UTC8 - {{ $now }}\n輸出語言：繁體中文\n\n"
+          "systemMessage": "=你是一位智慧退換貨 AI 審核助理，請根據下列資訊與 thinkg tool 協助進行邏輯推理，並思考是否應該「自動退貨」、「自動換貨」或「轉人工審核」\n\n## Think:\n- use thinkg tool for directing complex task to organize things from all tools\n\n## Tool:\n- use n8n MCP client Store Order for order list - 請從 airtable 中獲取用訂單資訊與用戶風險分數\n  Order 方法： 用戶訂單資訊 - filter 可以使用 user_name 取的訂單列表在判斷產品\n- use n8n MCP client Store User Risk for userrisk - 請從 airtable 中獲取用訂單資訊與用戶風險分數\n  UserRisk 方法: 用戶風險分數 - filter 可以使用 user_name\n- use n8n MCP client Email for email me notification mail \n  - use gmail 的格式\n  - 請使用 html 的 gmail 語法寄送\n\n\n## info\nmy email info: n8n-automation@example.com\n\n## 輸出規則\n地區：台灣  \n時間：UTC8 - {{ $now }}\n輸出語言：繁體中文\n\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",

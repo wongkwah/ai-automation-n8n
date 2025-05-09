@@ -200,7 +200,7 @@
     },
     {
       "parameters": {
-        "sendTo": "qwedsazxc78@gmail.com",
+        "sendTo": "n8n-automation@example.com",
         "subject": "=SSL {{ $json.result.days_left }} 天後過期 - {{ $json.result.host }}",
         "emailType": "text",
         "message": "=請確認該網域：{{ $json.result.host }}\n再過 {{ $json.result.days_left }} 天後即將過期，請儘速處理\nhttps://docs.google.com/spreadsheets/d/1kwCcuhCGuTq_7QzMzs9-UbN8oWOxwIbtfnbQDJTJ66Q",
