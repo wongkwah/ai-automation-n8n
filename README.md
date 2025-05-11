@@ -72,5 +72,8 @@
 19. [🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/19-image-generate-ai-agent)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/DCjv00f6lXI)
 
-20. [🔥 省力工具！OpenAI 最新圖片模型 GPT-image-1 登場！如何打造電商商品圖片，建立圖片靈感來源 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/21-n8n-shopping-search-agent)
+20. [8 分鐘最速入門 n8n API 請求與 Ｗebook ｜原理與使用方法一次理解｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/20-n8n-http-request-and-webhook)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/l5-s6h2iY_M)
+
+21. [OpenAI 推出 ChatGPT 購物搜尋助理！n8n AI Agent 能做到一樣的購物搜尋功能嗎？ChatGPT Shopping Search｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/21-n8n-shopping-search-agent)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/5pkLFXLQp6U)
