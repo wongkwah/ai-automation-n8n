@@ -15,7 +15,7 @@
 
 ## 📌 功能介紹
 
-輕鬆掌握 API 請求（HTTP Request）與 Webhook 的運作原理與概念
+8 分鐘掌握 API 請求（HTTP Request）與 Webhook 的運作原理與概念
 在 n8n 的實際使用方式！
 
 * ✅ 什麼是 API 與 API 請求？運作概念一次通透理解
