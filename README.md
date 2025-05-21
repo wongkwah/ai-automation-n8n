@@ -77,3 +77,12 @@
 
 21. [OpenAI 推出 ChatGPT 購物搜尋助理！n8n AI Agent 能做到一樣的購物搜尋功能嗎？ChatGPT Shopping Search｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/21-n8n-shopping-search-agent)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/5pkLFXLQp6U)
+
+22. [如何用 n8n 達成產品影片自動化，n8n step by step 教學｜ChatGPT-Image-1 + runway｜🔥 省力工具](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/22-n8n-product-video-automation)
+   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Aixy9qH9K98)
+
+23. [10分鐘學會 16 個 n8n 技巧，加速 5x 開發時間｜26 個 n8n 技巧系列 Part 1｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/23-n8n-26-tips-1-16)
+[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/mPSkokKL6pY)
+
+24. [8分鐘再學會 10 個 n8n 技巧，完美收官 n8n 小撇步｜26 個 n8n 技巧系列 Part 2｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/24-n8n-26-tips-16-26)
+[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/dlEc01R2xaU)

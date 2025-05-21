@@ -1,11 +1,11 @@
-# EP22 如何用 n8n 達成產品影片自動化，n8n step by step 教學｜ChatGPT-Image-1 + runway｜🔥 省力工具
+# 如何用 n8n 達成產品影片自動化，n8n step by step 教學｜ChatGPT-Image-1 + runway｜🔥 省力工具[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Aixy9qH9K98)
 
 為零基礎或自動化愛好者設計，n8n 結合 AI 圖片生成 GPT-Image-1  與影片產生工具 Runway
 結合產生 end-to-end 的全自動產品行銷影片工作流
 每一步均有圖文解說與錯誤排除經驗，幫助你深入理解流程
 馬上開始用這個自動化工作流，幫你節省工作時間！
 
-![EP22 產品影片自動化教學](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/22-n8n-product-video-automation/cover.png?raw=true)
+![產品影片自動化教學](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/22-n8n-product-video-automation/cover.png?raw=true)
 
 ## 作者資訊
 
