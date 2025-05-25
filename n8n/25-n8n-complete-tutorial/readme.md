@@ -2,6 +2,10 @@
 
 ![n8n 0 基礎教學：6 個實戰 Lab 學會 AI 自動化！一次搞懂 LLM, AI Agent, Workflow](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/25-n8n-complete-tutorial/cover.png?raw=true)
 
+## 🌟 加入 Skool 社群 | 與 AI Brain 一起學習
+
+歡迎加入我們的 [Skool 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)，和其他學習者一起交流、提問與精進技能！[![Skool](https://img.shields.io/badge/Join%20Skool-%234144B3?style=flat-square&logoColor=white)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
+
 ## 作者資訊
 
 * **作者：** Alexhsieh
@@ -74,7 +78,3 @@ n8n 0 基礎自動化教學
 ## Lab6 - 電商圖片生成 AI Agent -> 成功建立 AI Agent
 
 ![Lab6 - 電商圖片生成 AI Agent -> 成功建立 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/25-n8n-complete-tutorial/docs/L6.png?raw=true)
-
-## 🌟 加入 Skool 社群 | 與 AI Brain 一起學習
-
-歡迎加入我們的 [Skool 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)，和其他學習者一起交流、提問與精進技能！[![Skool](https://img.shields.io/badge/Join%20Skool-%234144B3?style=flat-square&logoColor=white)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
