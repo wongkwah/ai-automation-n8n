@@ -96,10 +96,10 @@
 
 ## 📺 [YouTube 教學頻道 Alex Hsieh 相談室 | AI Brain](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
 
-![Alex Hsieh 相談室 | AI Brain](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/docs/YT.png?raw=true)
+![Alex Hsieh 相談室 | AI Brain](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/docs/YT.png?raw=true)
 
 ## 👥 [Skool 社群學習中心：Skool | AI Brain 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4) [![Skool](https://img.shields.io/badge/Join%20Skool-%234144B3?style=flat-square&logoColor=white)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
 
-![Alex Hsieh 相談室 | AI Brain](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/docs/Skool-about.png?raw=true)
+![Alex Hsieh 相談室 | AI Brain](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/docs/Skool-about.png?raw=true)
 
-![Skool Classroom](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/docs/classroom.png?raw=true)
+![Skool Classroom](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/docs/classroom.png?raw=true)
