@@ -1,0 +1,158 @@
+{
+  "name": "Lab1-第一個工作流",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "**客戶資料庫 (n8n 訓練範例資料)**",
+        "height": 300,
+        "width": 260
+      },
+      "id": "99aac2fe-ab90-496c-b317-868feb5dd6f1",
+      "name": "Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        460,
+        180
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "**編輯資料欄位，並往後進行**",
+        "height": 300,
+        "width": 260
+      },
+      "id": "9e7c3d6b-0763-493a-b061-347be0e90bbd",
+      "name": "Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        740,
+        180
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "getAllPeople",
+        "returnAll": true
+      },
+      "id": "9857dc13-92b8-4291-aa31-7acad93ae5cf",
+      "name": "客戶資料庫",
+      "type": "n8n-nodes-base.n8nTrainingCustomerDatastore",
+      "position": [
+        540,
+        280
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "9c5bfc26-82a7-49ee-bf63-07e15577aa16",
+      "name": "點擊就運行 \"Test Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        260,
+        280
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "**觸發工作流**",
+        "height": 300,
+        "width": 260
+      },
+      "id": "1a181c69-32b0-4eb7-96f9-984e885d1c9e",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        180,
+        180
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "df041e3c-fc09-4ba2-8e6b-37f2c6a02526",
+              "name": "客戶ID",
+              "type": "string",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "id": "bf288953-4fef-4f55-a45f-c223714919c0",
+              "name": "客戶姓名",
+              "type": "string",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "id": "1cff0b21-6740-4697-9d2c-9bcb045af0be",
+              "name": "客戶敘述",
+              "type": "string",
+              "value": "={{ $json.notes }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e0776f8a-d54c-4eb1-bd75-39bf0e1f2936",
+      "name": "編輯欄位 Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        820,
+        280
+      ],
+      "typeVersion": 3.3
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "客戶資料庫": {
+      "main": [
+        [
+          {
+            "node": "編輯欄位 Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "點擊就運行 \"Test Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "客戶資料庫",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d88e8b87-6d58-47ec-bb92-9c4dd3a976fd",
+  "meta": {
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "2Mp9l2Mrp7LutUB1",
+  "tags": [
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    },
+    {
+      "createdAt": "2025-05-02T09:23:49.693Z",
+      "updatedAt": "2025-05-02T09:24:01.604Z",
+      "id": "ruZISO7qXZnb0jBG",
+      "name": "n8n-101"
+    }
+  ]
+}

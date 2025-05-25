@@ -1,0 +1,186 @@
+{
+  "name": "Lab2-常用核心節點-http-webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "lab/health",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -600,
+        -260
+      ],
+      "id": "b70ce89a-804a-40e3-9b26-710c509e2c35",
+      "name": "Webhook",
+      "webhookId": "8fa045e6-fe30-47c1-9a69-fdd0fdc945bc"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"status\": \"ok\"\n}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -380,
+        -260
+      ],
+      "id": "3a59b581-433f-4ebb-8292-5eecb597d930",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "content": "## Webhook - 網站健康狀況 Healthy",
+        "height": 500,
+        "width": 530,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        -440
+      ],
+      "id": "32388949-9ca8-4328-bb17-bf664cd6813d",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        -320
+      ],
+      "id": "0aa356e0-86fe-40da-bdd4-7e2ee1d605e3",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://n8n-alex.zeabur.app/webhook/lab/health",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        160,
+        -220
+      ],
+      "id": "e978aaa2-401e-4fd8-9881-62585c6443c0",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "7b46f5a2-cdd0-4e26-9cd3-e5338899883a",
+      "name": "Daily Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        -60,
+        -120
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "## API 請求 - 測試健康狀況",
+        "height": 500,
+        "width": 610,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        -440
+      ],
+      "id": "add673d7-0ee6-4632-9765-9f8df736dccc",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "Daily Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "96ac6185-1279-4f41-8eda-5ac9ad427d0d",
+  "meta": {
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "kND5pBCpVMKsGpVC",
+  "tags": [
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    },
+    {
+      "createdAt": "2025-05-02T09:23:49.693Z",
+      "updatedAt": "2025-05-02T09:24:01.604Z",
+      "id": "ruZISO7qXZnb0jBG",
+      "name": "n8n-101"
+    }
+  ]
+}

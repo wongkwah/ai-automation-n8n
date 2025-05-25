@@ -1,0 +1,398 @@
+{
+  "name": "Lab4-超級翻譯機，中英日韓翻譯一次搞定",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        20
+      ],
+      "id": "3c8e05e8-c1ab-4af0-b2aa-210bb060f0c1",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "content": "## Step1 - 翻譯文件：整理多個文件產生的內容，讀取要翻譯的內容",
+        "height": 420,
+        "width": 430,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        -80
+      ],
+      "id": "cb9d0e7e-8d30-4a97-b8f6-97dd4e4c1447",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Step2 - 批量處理：能夠同時處理大量內容",
+        "height": 420,
+        "width": 310
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        -80
+      ],
+      "id": "1ec5a2fc-b7d0-4541-959e-8a1bcea328c3",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return $json.choices[0].message.content"
+      },
+      "id": "c5f83c93-6187-4bf0-9cee-4124dfa201db",
+      "name": "Parse JSON",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        60,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-nano",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-NANO"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=你是多國語言翻譯大師，請將下面的翻譯內容從指定語言轉換成目標語言\n\n1. 當無法辨認內容的指定語言時，請將內容預設翻譯成臺灣繁體中文\n2. 當沒有翻譯內容時，請再嘗試一次，最後回傳\"x\"\n3. 請不要亂翻譯\n\n預設JSON輸出\n{\n  \"中文\": \"我是翻譯機\",\n  \"英文\": \"I am a translator\",\n  \"韓文\": \"나는 번역가입니다\",\n  \"日文\": \"私は翻訳者です\",\n}",
+              "role": "system"
+            },
+            {
+              "content": "=請將內容翻譯成中文、英文、日文、韓文，等四種語言\n\n翻譯內容：{{ $json['中文'] }}"
+            }
+          ]
+        },
+        "simplify": false,
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -260,
+        140
+      ],
+      "id": "ed471f05-1ba3-45b4-abf4-33e8e57d6330",
+      "name": "翻譯機",
+      "credentials": {
+        "openAiApi": {
+          "id": "vo1Kz0pllXw8z5Cv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit?gid=747901493#gid=747901493",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 747901493,
+          "mode": "list",
+          "cachedResultName": "中英日韓",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit#gid=747901493"
+        },
+        "options": {}
+      },
+      "id": "f2725950-4cc9-4193-ac67-313ffcc61406",
+      "name": "讀取資料",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        -760,
+        20
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 10,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -540,
+        20
+      ],
+      "id": "cbaac91d-6783-4a64-99a9-e4b037f9beb4",
+      "name": "Loop Over Items 批量迴圈"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "c7c91812-98ba-41c0-9bd0-c3d150e35f22",
+      "name": "Merge 合併",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        240,
+        20
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit?gid=747901493#gid=747901493",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 747901493,
+          "mode": "list",
+          "cachedResultName": "中英日韓",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1r8rU0-oSXcHHTqLVdL1aPEzIhaIrubWmWAIm6huuxf0/edit#gid=747901493"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('讀取資料').item.json.row_number }}",
+            "英文": "={{ $json['英文'] }}",
+            "日文": "={{ $json['日文'] }}",
+            "韓文": "={{ $json['韓文'] }}",
+            "中文": "={{ $json['中文'] }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "中文",
+              "displayName": "中文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "英文",
+              "displayName": "英文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "日文",
+              "displayName": "日文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "韓文",
+              "displayName": "韓文",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "b1f39804-c94e-4c33-86d0-c98c0f2d6876",
+      "name": "更新資料",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        440,
+        140
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Step3 - 多語言轉換：中、英、日、韓同時翻譯",
+        "height": 420,
+        "width": 470,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -280,
+        -80
+      ],
+      "id": "0014d9ea-99b9-4fef-a6ff-944f443cd6cd",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Step4 - 保存翻譯結果：將結果儲存到對應表格",
+        "height": 420,
+        "width": 410,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        200,
+        -80
+      ],
+      "id": "cfe0b927-0292-4907-b61d-d4238cd962c0",
+      "name": "Sticky Note3"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "讀取資料",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse JSON": {
+      "main": [
+        [
+          {
+            "node": "Merge 合併",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "翻譯機": {
+      "main": [
+        [
+          {
+            "node": "Parse JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "讀取資料": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items 批量迴圈",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items 批量迴圈": {
+      "main": [
+        [],
+        [
+          {
+            "node": "翻譯機",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge 合併",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge 合併": {
+      "main": [
+        [
+          {
+            "node": "更新資料",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "更新資料": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items 批量迴圈",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b5a44548-2e3e-4d8a-b0dc-5901a8d919e0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "Za9lcV4Nzm8hn1Xq",
+  "tags": [
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    },
+    {
+      "createdAt": "2025-05-02T09:23:49.693Z",
+      "updatedAt": "2025-05-02T09:24:01.604Z",
+      "id": "ruZISO7qXZnb0jBG",
+      "name": "n8n-101"
+    }
+  ]
+}

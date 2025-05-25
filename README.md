@@ -1,10 +1,26 @@
 # ai-automation-n8n
 
-## AI 自動化系列播放清單 | AI-Automation
+## 📂 連結快速入口
 
-[ai automation - 使用 n8n 與 ai agent 來自動化](https://github.com/qwedsazxc78/ai-automation-n8n) [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
+* 💡 GitHub 專案頁面：[ai-automation-n8n](https://github.com/qwedsazxc78/ai-automation-n8n)
+* 📺 YouTube 教學頻道：[Alex Hsieh 相談室 | AI Brain](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
+* 👥 Skool 社群學習中心：[Skool | AI Brain 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
 
-[🔔 如果你喜歡我的內容！點我訂閱頻道起來](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
+## 🚀 AI 自動化系列 | AI Automation with n8n & AI Agents
+
+使用 [n8n](https://n8n.io) 與 AI Agent 技術，打造無程式碼的自動化工作流
+
+👉 點此查看專案：[ai-automation-n8n GitHub Repo](https://github.com/qwedsazxc78/ai-automation-n8n)
+
+觀看完整教學影片，快速上手 AI 自動化！
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
+
+📌 **喜歡內容嗎？別忘了訂閱頻道！**
+[🔔 點我訂閱 YouTube 頻道](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
+
+## 🌟 加入 Skool 社群 | 與 AI Brain 一起學習
+
+歡迎加入我們的 [Skool 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)，和其他學習者一起交流、提問與精進技能！[![Skool](https://img.shields.io/badge/Join%20Skool-%234144B3?style=flat-square&logoColor=white)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
 
 ## 一鍵部署雲端 n8n in Zeabur
 

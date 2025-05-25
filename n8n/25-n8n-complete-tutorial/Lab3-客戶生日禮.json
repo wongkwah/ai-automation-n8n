@@ -1,0 +1,497 @@
+{
+  "name": "Lab3-客戶生日禮",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Step1 - 客戶名單：平常必須整理來店客人資訊\n\n",
+        "height": 480,
+        "width": 430,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        -80
+      ],
+      "id": "74946d6a-b728-4d77-800d-5ef49d7174b9",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Step2 - 當月壽星：每天或每月從客人生日資訊，找出壽星名單\n",
+        "height": 480,
+        "width": 670
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        -80
+      ],
+      "id": "d9c2dce1-2db6-44c9-8b06-cd760d56876d",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Step3 - 寄送生日禮：使用Email or 簡訊，寄送折扣券給客戶\n\n",
+        "height": 480,
+        "width": 370,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        80,
+        -80
+      ],
+      "id": "89103129-784e-4495-b020-abe9a7197cbc",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Step4 - 檢核手續：檢查客戶是否寄送並記錄\n\n\n",
+        "height": 480,
+        "width": 370,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        -80
+      ],
+      "id": "4e2cf872-03e8-4a34-aa54-42a19bcddd86",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "decbae4e-570f-4a9b-80d7-2482e81f3c54",
+              "leftValue": "={{ $('Loop Over Items 批量迴圈').item.json['生日'].split(\"-\")[1] }}",
+              "rightValue": "={{ $json.month }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -140,
+        40
+      ],
+      "id": "b2f0e7fa-1f43-45c1-8a4f-5227d6f65bc2",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('讀取資料').item.json.Email }}",
+        "subject": "生日快樂！",
+        "emailType": "text",
+        "message": "=親愛的{{ $('讀取資料').item.json['客戶姓名'] }}，\n\n祝你生日快樂！🎂\n感謝你一路以來對我們的支持。為了慶祝你的生日，我們特別準備了 ${{ $('讀取資料').item.json['折扣金額'] }} 折扣券，希望讓你在美髮時更加開心放鬆。\n\n專屬折扣碼：{{ $('讀取資料').item.json['折扣碼'] }} \n使用期限：生日當日起 7 天內\n\n祝你有個美好的一天！\n\n— 你的專屬美髮顧問 💇",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        120,
+        40
+      ],
+      "id": "3f6f3bc4-5d2c-4e99-bb9c-0b78afb5cacb",
+      "name": "Gmail",
+      "webhookId": "619d7d56-9b60-4fd6-ac9b-154a3ac22228",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "xhKbueCrvtZ602Y6",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "extractDate",
+        "date": "={{ new Date().toISOString() }}",
+        "outputFieldName": "month",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        -320,
+        40
+      ],
+      "id": "4348dded-5f59-41d2-86f7-c6a9b6723ca2",
+      "name": "Date & Time"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -960,
+        245
+      ],
+      "id": "59c00b17-3e62-47d8-b7b2-f21da7a2897d",
+      "name": "Schedule Trigger 每日觸發"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10jqcIjDviN37IdslRYSZdZzwuBKkN-Yci01pTx-a25E/",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 40653093,
+          "mode": "list",
+          "cachedResultName": "客戶資料",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10jqcIjDviN37IdslRYSZdZzwuBKkN-Yci01pTx-a25E/edit#gid=40653093"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "客戶姓名": "={{ $('讀取資料').item.json['客戶姓名'] }}",
+            "郵件寄送狀態": "true"
+          },
+          "matchingColumns": [
+            "客戶姓名"
+          ],
+          "schema": [
+            {
+              "id": "客戶姓名",
+              "displayName": "客戶姓名",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "手機",
+              "displayName": "手機",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "生日",
+              "displayName": "生日",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "性別",
+              "displayName": "性別",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "上次消費日期",
+              "displayName": "上次消費日期",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "折扣金額",
+              "displayName": "折扣金額",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "折扣碼",
+              "displayName": "折扣碼",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "郵件寄送狀態",
+              "displayName": "郵件寄送狀態",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "40e0439a-0102-4391-849d-656bdf6131d9",
+      "name": "更新資料",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        520,
+        160
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 10,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -540,
+        40
+      ],
+      "id": "d4a4da60-5230-4b3e-80d9-4488bd4811af",
+      "name": "Loop Over Items 批量迴圈"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/10jqcIjDviN37IdslRYSZdZzwuBKkN-Yci01pTx-a25E/edit?gid=40653093#gid=40653093",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 40653093,
+          "mode": "list",
+          "cachedResultName": "客戶資料",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/10jqcIjDviN37IdslRYSZdZzwuBKkN-Yci01pTx-a25E/edit#gid=40653093"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "郵件寄送狀態",
+              "lookupValue": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bf691405-b8f1-4a7b-bd92-b0c1991bad2c",
+      "name": "讀取資料",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        -740,
+        160
+      ],
+      "typeVersion": 4.5,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "h9nt1tzSKXo5I5yr",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        45
+      ],
+      "id": "082775ac-1dff-423f-890c-d34db3bd6c45",
+      "name": "When clicking ‘Test workflow’"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items 批量迴圈",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "更新資料",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger 每日觸發": {
+      "main": [
+        [
+          {
+            "node": "讀取資料",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "更新資料": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items 批量迴圈",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items 批量迴圈": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "讀取資料": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items 批量迴圈",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "讀取資料",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "92b664ad-f3f6-4ad3-868b-b54d2accdc66",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fc6998a4fc974191a50fd1e28f3c93149311bffb0a029723a4889a4111c908"
+  },
+  "id": "z5oxMSRqxawwekEo",
+  "tags": [
+    {
+      "createdAt": "2025-03-17T08:20:06.861Z",
+      "updatedAt": "2025-03-17T08:20:06.861Z",
+      "id": "pvRmfUcHdkTEgrk9",
+      "name": "yt"
+    },
+    {
+      "createdAt": "2025-05-02T09:23:49.693Z",
+      "updatedAt": "2025-05-02T09:24:01.604Z",
+      "id": "ruZISO7qXZnb0jBG",
+      "name": "n8n-101"
+    }
+  ]
+}
