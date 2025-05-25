@@ -3,24 +3,8 @@
 ## 📂 連結快速入口
 
 * 💡 GitHub 專案頁面：[ai-automation-n8n](https://github.com/qwedsazxc78/ai-automation-n8n)
-* 📺 YouTube 教學頻道：[Alex Hsieh 相談室 | AI Brain](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
-* 👥 Skool 社群學習中心：[Skool | AI Brain 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
-
-## 🚀 AI 自動化系列 | AI Automation with n8n & AI Agents
-
-使用 [n8n](https://n8n.io) 與 AI Agent 技術，打造無程式碼的自動化工作流
-
-👉 點此查看專案：[ai-automation-n8n GitHub Repo](https://github.com/qwedsazxc78/ai-automation-n8n)
-
-觀看完整教學影片，快速上手 AI 自動化！
-[![Watch on YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
-
-📌 **喜歡內容嗎？別忘了訂閱頻道！**
-[🔔 點我訂閱 YouTube 頻道](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
-
-## 🌟 加入 Skool 社群 | 與 AI Brain 一起學習
-
-歡迎加入我們的 [Skool 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)，和其他學習者一起交流、提問與精進技能！[![Skool](https://img.shields.io/badge/Join%20Skool-%234144B3?style=flat-square&logoColor=white)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
+* 📺 YouTube 教學頻道：[Alex Hsieh 相談室 | AI Brain](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q) - 別忘了訂閱頻道！** [🔔 點我訂閱 YouTube 頻道](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
+* 👥 Skool 社群學習中心：[Skool | AI Brain 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)，和其他學習者一起交流、提問與精進技能！[![Skool](https://img.shields.io/badge/Join%20Skool-%234144B3?style=flat-square&logoColor=white)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
 
 ## 一鍵部署雲端 n8n in Zeabur
 
@@ -32,54 +16,58 @@
 
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/0TUVZ7?referralCode=qwedsazxc78)
 
-## AI 自動化系列影片 | AI-Automation
+## 🚀 AI 自動化系列 | AI Automation with n8n & AI Agents
 
-01. [🔥 省力工具！發票自動整理 AI 機器人](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/1-simple-invoice-automation)
+### 觀看完整教學影片，快速上手 AI 自動化！
+
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q)
+
+01.  [🔥 省力工具！發票自動整理 AI 機器人](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/1-simple-invoice-automation)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://www.youtube.com/watch?v=9RNpxRrwdHQ)
 
-02. [🔥 省力工具！逐字稿跟srt字幕檔自動轉換機器人](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/2-auto-translate-subtitle-automation)
+02.  [🔥 省力工具！逐字稿跟srt字幕檔自動轉換機器人](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/2-auto-translate-subtitle-automation)
    [![YouTube](https://**img**.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/CzeYiRmV45M)
 
-03. [🔥 行銷省力工具！公司名單抓取神器，用 n8n 幫忙整理潛在客戶名單](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/3-auto-marketing-list-automation)
+03.  [🔥 行銷省力工具！公司名單抓取神器，用 n8n 幫忙整理潛在客戶名單](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/3-auto-marketing-list-automation)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/PsGwfkYdfpk)
 
-04. [🔥 IT 省力工具！SSL 憑證管理與憑證過期通知自動化](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/4-SSL-checker-automation)
+04.  [🔥 IT 省力工具！SSL 憑證管理與憑證過期通知自動化](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/4-SSL-checker-automation)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/VVXYiKapIKg)
 
-05. [💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/5-xAI-ai-agent)
+05.  [💸 馬斯克懂用戶！充 5 塊送每月 150塊 API Credits，xAI Grok 立刻用起來！速度用 n8n 跟 xAI Grok 建立 AI Agent](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/5-xAI-ai-agent)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Z1uqqLNAB4U)
 
-07. [🔥 省力工具！超級翻譯機，1次翻譯100個段落，英翻中、中翻英都可以一次搞定](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
+06.  [🔥 省力工具！超級翻譯機，1次翻譯100個段落，英翻中、中翻英都可以一次搞定](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/LtCnZTV3cgs)
 
-08. [🔥 省力工具！超級翻譯機，中英日韓翻譯一次搞定！](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
+07.  [🔥 省力工具！超級翻譯機，中英日韓翻譯一次搞定！](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/7-super-translator-100-batch)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/PgT0_F56Eb4)
 
-09.  [什麼是 MCP？ 3 個 n8n AI Agent 情境解析 MCP 使用](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
+08.   [什麼是 MCP？ 3 個 n8n AI Agent 情境解析 MCP 使用](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/MwHuCtkzvdo)
 
-10. [5分鐘搞定n8n + Google OAuth｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/10-n8n-with-google-oauth)
+09.  [5分鐘搞定n8n + Google OAuth｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/10-n8n-with-google-oauth)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/V-iT-HbBOew)
 
-11.  [MCP Deep Dive - 深入研究 MCP 運作原理、架構與元件理解｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
+10.  [MCP Deep Dive - 深入研究 MCP 運作原理、架構與元件理解｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/9-ai-agent-with-mcp)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/6aOw26BVy4M)
 
-12. [5分鐘搞定 n8n + MCP 安裝設定｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/12-mcp-community-node)
+11. [5分鐘搞定 n8n + MCP 安裝設定｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/12-mcp-community-node)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/pAWAwSCXxig)
 
-13. [如何在 zeabur 一鍵部署 n8n｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/13-deploy-zubear)
+12. [如何在 zeabur 一鍵部署 n8n｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/13-deploy-zubear)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/tglGHWaSWc8)
 
-14. [n8n 官方 MCP 登場！2 個 n8n AI Agent 情境解析，與 Claude Desktop 完美整合｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/14-n8n-native-mcp)
+13. [n8n 官方 MCP 登場！2 個 n8n AI Agent 情境解析，與 Claude Desktop 完美整合｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/14-n8n-native-mcp)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/Ictp1DCPUg4)
 
-15. [0 成本 n8n 工作流，本地電腦一鍵部署 n8n＋ngrok 幫你服務公開存取｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/15-deploy-n8n-in-local)
+14. [0 成本 n8n 工作流，本地電腦一鍵部署 n8n＋ngrok 幫你服務公開存取｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/15-deploy-n8n-in-local)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/E_cqlz7VGgs)
 
-16. [n8n think tool 升級 AI Agent！GPT4.1 + 思考指揮官，解決複雜任務更容易！Anthropic's Think Method｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/16-n8n-ai-agent-with-think-tool)
+15. [n8n think tool 升級 AI Agent！GPT4.1 + 思考指揮官，解決複雜任務更容易！Anthropic's Think Method｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/16-n8n-ai-agent-with-think-tool)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/E_cqlz7VGgs)
 
-17. [8分鐘學會用 n8n 串接 LINE Message API 與 Webhook 實戰教學｜打造個人 AI 助理｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/17-n8n-line-message-api)
+16. [8分鐘學會用 n8n 串接 LINE Message API 與 Webhook 實戰教學｜打造個人 AI 助理｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/17-n8n-line-message-api)
    [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/HJKDHJ5x1F0)
 
 18. [8 分鐘學會 n8n 錯誤處理工作流 Error Workflow！3大通知方法 LINE、Email、Google Sheet 即時掌握 99% 的錯誤｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/18-n8n-error-workflow)
@@ -100,5 +88,18 @@
 23. [10分鐘學會 16 個 n8n 技巧，加速 5x 開發時間｜26 個 n8n 技巧系列 Part 1｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/23-n8n-26-tips-1-16)
 [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/mPSkokKL6pY)
 
-24. [8分鐘再學會 10 個 n8n 技巧，完美收官 n8n 小撇步｜26 個 n8n 技巧系列 Part 2｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/24-n8n-26-tips-16-26)
+24.  [8分鐘再學會 10 個 n8n 技巧，完美收官 n8n 小撇步｜26 個 n8n 技巧系列 Part 2｜🧠 省力知識庫](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/24-n8n-26-tips-16-26)
 [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/dlEc01R2xaU)
+
+25.  [n8n 0 基礎教學：6 個實戰 Lab 學會 AI 自動化！一次搞懂 LLM, AI Agent, Workflow](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/25-n8n-complete-tutorial)
+[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/dlEc01R2xaU)
+
+## 📺 [YouTube 教學頻道 Alex Hsieh 相談室 | AI Brain](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
+
+![Alex Hsieh 相談室 | AI Brain](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/docs/YT.png?raw=true)
+
+## 👥 [Skool 社群學習中心：Skool | AI Brain 社群](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4) [![Skool](https://img.shields.io/badge/Join%20Skool-%234144B3?style=flat-square&logoColor=white)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
+
+![Alex Hsieh 相談室 | AI Brain](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/docs/Skool-about.png?raw=true)
+
+![Skool Classroom](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/docs/classroom.png?raw=true)

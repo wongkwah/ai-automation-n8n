@@ -1,4 +1,4 @@
-# n8n 0 基礎教學：6 個實戰 Lab 學會 AI 自動化！一次搞懂 LLM, AI Agent, Workflow
+# n8n 0 基礎教學：6 個實戰 Lab 學會 AI 自動化！一次搞懂 LLM, AI Agent, Workflow[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/dlEc01R2xaU)
 
 ![n8n 0 基礎教學：6 個實戰 Lab 學會 AI 自動化！一次搞懂 LLM, AI Agent, Workflow](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/n8n/25-n8n-complete-tutorial/cover.png?raw=true)
 
