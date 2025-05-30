@@ -171,3 +171,5 @@ cython_debug/
 .pypirc
 .qodo
 .DS_Store
+
+**/all-json-examples
