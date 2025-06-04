@@ -30,3 +30,12 @@
 只要你想要行銷自動化、名單收集更省力，這支教學就是你的 n8n 實戰入門首選！🚀
 
 > 喜歡影片歡迎點讚＋訂閱，之後還會分享更多 AI 與自動化實用工具哦！
+
+---
+
+* [加入 AI 學習社群 (Skool)](https://www.skool.com/ai-brain-alex/about?ref=5dde9b20e8e7432aa9a01df6e89685f4)
+* [n8n 26個技巧大全](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/23-n8n-26-tips-1-16)
+* [zeaber n8n 部署模板 (隨時更新)](https://zeabur.com/zh-TW/templates/0TUVZ7?referralCode=qwedsazxc78)
+* [n8n AI 自動化工作流，從基礎到進階實戰](https://youtube.com/playlist?list=PLUf88uk7T54I83MBdbuXgUuA8rVklF4FA&si=wHsQw8YJu-erSdLd)
+* [碎片化時間學習 n8n](https://youtube.com/playlist?list=PLUf88uk7T54Iv6LV2NFgdTghaX2cPhtgH&si=G3gj2qn179ZFUqAZ)
+* [n8n 官方連結](https://n8n.io/)
