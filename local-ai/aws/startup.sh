@@ -17,13 +17,15 @@ apt-cache policy docker-ce
 sudo apt install -y docker-ce
 
 # --- 2. ENABLE & START ---
-sudo systemctl enable docker
 info "Ensuring current user is in 'docker' group..."
 if ! getent group docker >/dev/null; then
   sudo groupadd docker
 fi
 sudo usermod -aG docker $USER
+
+sudo systemctl enable docker
 sudo systemctl start docker
+
 
 # --- 3. CLONE OR UPDATE YOUR REPO ---
 if [ -d "${BASE_DIR}" ]; then
