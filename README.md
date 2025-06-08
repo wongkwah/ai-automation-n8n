@@ -94,6 +94,12 @@
 25.  [n8n 0 基礎教學：6 個實戰 Lab 學會 AI 自動化！一次搞懂 LLM, AI Agent, Workflow](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/25-n8n-complete-tutorial)
 [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/dlEc01R2xaU)
 
+26.  [8 分鐘學會最簡單的 n8n 表單應用，打造自動化名單磁鐵](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/26-n8n-form-lead-magnet)
+[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/zZd34JL7eUg)
+
+27.  [n8n 語音 AI Agent 預約確認服務｜Retell + Twilio 打造 AI Call 客](https://github.com/qwedsazxc78/ai-automation-n8n/tree/main/n8n/27-voice-ai-agent-with-retell)
+[![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?logo=youtube)](https://youtu.be/dlEc01R2xaU)
+
 ## 📺 [YouTube 教學頻道 Alex Hsieh 相談室 | AI Brain](https://www.youtube.com/channel/UCDMJaaMu3nGNc7bNKMAtS7Q?sub_confirmation=1)
 
 ![Alex Hsieh 相談室 | AI Brain](https://github.com/qwedsazxc78/ai-automation-n8n/blob/main/docs/YT.png?raw=true)
