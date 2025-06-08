@@ -1,50 +1,41 @@
 #!/usr/bin/env bash
-# ------------------------------------------------------------------
-# Automated Docker & n8n Deployment Script for Ubuntu 22.04/24.04
-# ------------------------------------------------------------------
-set -euo pipefail
-IFS=$'\n\t'
+set -xeuo pipefail
 
-# --- CONFIGURATION ---
-# Where your n8n Docker Compose file lives
-COMPOSE_PATH="${HOME}/ai-automation-n8n"
+# --- VARIABLES ---
+REPO_URL="https://github.com/qwedsazxc78/ai-automation-n8n.git"
+BASE_DIR="${HOME}/ai-automation-n8n"
+COMPOSE_PATH="${BASE_DIR}/local-ai/aws"
 
-# --- FUNCTIONS ---
-info()  { printf "\033[1;34m[INFO]\033[0m %s\n" "$*"; }
-error() { printf "\033[1;31m[ERROR]\033[0m %s\n" "$*" >&2; exit 1; }
+# --- 0. PREP: install git ---
+sudo apt-get update -y
+sudo apt-get install -y git apt-transport-https ca-certificates curl software-properties-common
 
 # --- 1. INSTALL DOCKER ENGINE ---
-info "Installing Docker Engine..."
-# This script installs Docker CE, CLI, containerd, buildx & compose-plugin
-curl -fsSL https://get.docker.com | sudo sh
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt-cache policy docker-ce
+sudo apt install -y docker-ce
 
-# --- 2. ENABLE & START SERVICES ---
-info "Enabling and starting Docker services..."
-sudo systemctl enable --now docker containerd
-
-# --- 3. POST-INSTALL FOR NON-ROOT USAGE ---
+# --- 2. ENABLE & START ---
+sudo systemctl enable docker
 info "Ensuring current user is in 'docker' group..."
 if ! getent group docker >/dev/null; then
   sudo groupadd docker
 fi
-# Add only if not already a member
-if ! id -nG "${USER}" | grep -qw docker; then
-  sudo usermod -aG docker "${USER}"
-  info "User '${USER}' added to 'docker' group. You must log out & back in (or run: exec su -l ${USER})"
-fi
+sudo usermod -aG docker $USER
+sudo systemctl start docker
 
-# --- 4. CLONE & DEPLOY n8n ---
-info "Cloning n8n repository (HTTPS)..."
-if [ -d "${COMPOSE_PATH}" ]; then
-  info "Directory ${COMPOSE_PATH} already exists—pulling latest changes"
-  git -C "${COMPOSE_PATH}" pull --ff-only
+# --- 3. CLONE OR UPDATE YOUR REPO ---
+if [ -d "${BASE_DIR}" ]; then
+  echo "[INFO] ${BASE_DIR} exists → pulling latest"
+  git -C "${BASE_DIR}" pull --ff-only
 else
-  git clone https://github.com/qwedsazxc78/ai-automation-n8n.git "${COMPOSE_PATH}"
+  echo "[INFO] Cloning repo into ${BASE_DIR}"
+  git clone "${REPO_URL}" "${BASE_DIR}"
 fi
 
-info "Launching n8n with Docker Compose..."
+# --- 4. LAUNCH n8n via Docker Compose ---
 cd "${COMPOSE_PATH}"
-docker compose up -d
+sudo docker compose up -d
 
-info "✅ Deployment complete!"
-info "n8n is available at: http://localhost:5678 (or your configured host/port)"
+echo "✅ n8n deployed and running on port 5678"
