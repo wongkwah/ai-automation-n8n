@@ -1,7 +1,7 @@
 # n8n 基本 Docker Compose 設置
 
 用於運行 n8n 工作流自動化工具
-此配置為在本地運行 n8n 容器所需的基礎設置，並搭配 PostgreSQL 資料庫。
+此配置為在 aws 運行 n8n 容器所需的基礎設置，並搭配 PostgreSQL 資料庫。
 
 ## 功能特點
 
@@ -39,8 +39,8 @@ POSTGRES_PORT=5432
 N8N_PORT=5678
 N8N_BASIC_AUTH_USER=admin
 N8N_BASIC_AUTH_PASSWORD=adminpass
-N8N_HOST=localhost
-WEBHOOK_URL=http://localhost:5678
+N8N_HOST=localhost (修改為最後的domain)
+WEBHOOK_URL=http://localhost:5678 (修改為最後的domain)
 ```
 
 ### 2. 啟動服務
@@ -50,7 +50,7 @@ docker-compose up -d
 ```
 
 * **本地訪問**：http://localhost:5678
-* **公開訪問**：ngrok URL 將顯示在 ngrok 容器日誌中：
+* **公開訪問**：確認 aws 服務配置的 IP
 
 預設憑證：
 * 用戶名：admin
@@ -80,4 +80,4 @@ docker-compose down -v
 | POSTGRES_PORT | PostgreSQL 端口 | 5432 |
 | N8N_PORT | n8n 網頁界面端口 | 5678 |
 | N8N_BASIC_AUTH_USER | n8n 基本認證用戶名 | admin |
-| N8N_BASIC_AUTH_PASSWORD | n8n 基本認證密碼 | change_this_password | |
+| N8N_BASIC_AUTH_PASSWORD | n8n 基本認證密碼 | change_this_password |

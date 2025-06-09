@@ -25,7 +25,7 @@ sudo systemctl start docker
 # --- VARIABLES ---
 REPO_URL="https://github.com/qwedsazxc78/ai-automation-n8n.git"
 BASE_DIR="${HOME}/ai-automation-n8n"
-COMPOSE_PATH="${BASE_DIR}/local-ai/aws"
+COMPOSE_PATH="${BASE_DIR}/cloud-ai/aws"
 
 # --- 3. CLONE OR UPDATE YOUR REPO ---
 if [ -d "${BASE_DIR}" ]; then
